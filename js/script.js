@@ -1,43 +1,60 @@
-function sendMail() {
-    let params = {
+async function sendMail(event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    const payload = {
+        access_key: "c239e419-ca30-4944-b34e-67340b76084e",
         name: document.getElementById("name").value,
         email: document.getElementById("email").value,
         subject: document.getElementById("subject").value,
         message: document.getElementById("message").value,
     };
 
-    const serviceID = "service_fdxo5tr";
-    const templateID = "template_5gji2h9";
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
 
-    emailjs.send(serviceID, templateID, params)
-        .then(res => {
-            // Réinitialiser les champs du formulaire
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
             document.getElementById("name").value = "";
             document.getElementById("email").value = "";
             document.getElementById("subject").value = "";
             document.getElementById("message").value = "";
 
-            // Afficher le message de succès
-            const successMessage = document.getElementById("success-message");
+            errorMessage.style.display = "none";
             successMessage.style.display = "block";
             setTimeout(() => {
                 successMessage.style.display = "none";
-                // Rafraîchir la page après 5 secondes
-                window.location.reload();
-            }, 5000); // Afficher pendant 5 secondes
+            }, 5000);
 
-            console.log(res);
-        })
-        .catch(err => {
-            // Afficher le message d'erreur
-            const errorMessage = document.getElementById("error-message");
-            errorMessage.style.display = "block";
-            setTimeout(() => {
-                errorMessage.style.display = "none";
-                // Rafraîchir la page après 5 secondes
-                window.location.reload();
-            }, 5000); // Afficher pendant 5 secondes
+            return false;
+        }
 
-            console.log(err);
-        });
+        successMessage.style.display = "none";
+        errorMessage.style.display = "block";
+        setTimeout(() => {
+            errorMessage.style.display = "none";
+        }, 5000);
+
+        return false;
+    } catch (error) {
+        successMessage.style.display = "none";
+        errorMessage.style.display = "block";
+        setTimeout(() => {
+            errorMessage.style.display = "none";
+        }, 5000);
+
+        return false;
+    }
 }

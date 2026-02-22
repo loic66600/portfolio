@@ -5,16 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="css/retex.css">
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-
-    <script type="text/javascript">
-        (function () {
-
-            emailjs.init("-ikYmccMF3C6oDA9g");
-        })();
-
-    </script>
     <script src="js/script.js"></script>
 </head>
 <body>
@@ -44,7 +35,7 @@
             <div class="contact-container">
                 <div class="contact-form">
                     <h2>Envoie moi un message</h2>
-                    <form id="contact-form" onsubmit="sendMail(); return false;">
+                    <form id="contact-form" onsubmit="return sendMail(event)">
                         <label for="name">Nom :</label>
                         
                         <input type="text" placeholder="Nom" id="name" name="name" required>
@@ -58,7 +49,7 @@
                         <label for="message">Message :</label>
                         <textarea id="message" placeholder="Message" name="message" required></textarea>
                         
-                        <button type="submit" onclick="sendMail()">Envoyer</button>
+                        <button type="submit">Envoyer</button>
                     </form>
                     <div id="success-message" style="display: none; color: green;">Message envoyé avec succès!</div>
                     <div id="error-message" style="display: none; color: red;">Erreur lors de l'envoi du message.</div>

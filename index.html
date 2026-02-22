@@ -16,18 +16,7 @@
     <!--main css file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
 
-    <!-- Email Js -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-    <script type="text/javascript">
-        (function () {
-
-            emailjs.init("-ikYmccMF3C6oDA9g");
-        })();
-
-    </script>
     <script src="js/script.js"></script>
-    <!-- end of Email Js-->
 
 </head>
 
@@ -61,7 +50,6 @@
             <div class="navigation-links">
                 <a href="#" data-text="HOME" id="home-link">HOME</a>
                 <a href="#" data-text="ABOUT" id="about-link">A PROPOS</a>
-                <a href="#" data-text="BLOG" id="blog-link">BLOG</a>
                 <a href="#" data-text="PORTFOLIO" id="portfolio-link">PORTFOLIO</a>
                 <a href="#" data-text="CONTACT" id="contact-link">CONTACT</a>
             </div>
@@ -99,7 +87,7 @@
                     <div class="secondline">
                         Je suis
                         <span class="txt-rotate color" data-period="1200"
-                            data-rotate='[ " Développeur.", " Blogueur." ]'></span>
+                            data-rotate='[ " Développeur de site.", "  Développeur d\'applications web" ]'></span>
                         <span class="slash">|</span>
                     </div>
                     <div class="contact">
@@ -316,6 +304,16 @@
                             <div class="skill-name">FIGMA</div>
                         </div>
                     </div>
+                    <div class="skill">
+                        <div class="skill-item">
+                            <img class="skills" src="https://cdn.simpleicons.org/prestashop" alt="PrestaShop Icon">
+                            <div class="skill-name">PRESTASHOP</div>
+                        </div>
+                        <div class="skill-item">
+                            <img class="skills" src="https://cdn.simpleicons.org/shopify" alt="Shopify Icon">
+                            <div class="skill-name">SHOPIFY</div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -455,7 +453,7 @@
         <!--Fin du portfolio-->
 
         <!--blog-->
-        <div id="blog">
+        <!-- <div id="blog">
             <div class="color-changer">
                 <div class="color-panel">
                     <img src="images/gear.png" alt="">
@@ -585,14 +583,14 @@
                 </div>
             </div>
             <!--copyright-section You Can Remove After Downloading-->
-            <div class="footer">
+            <!-- <div class="footer">
                 <div class="footer-text">
                     <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> 2024 - Rossignol
                     loïc - Tous droits réservés.
                 </div>
-            </div>
+            </div> -->
             <!--copyright-section-->
-        </div>
+        <!-- </div> --> 
         <!--blog end-->
         <!--contact-->
         <div id="contact">
@@ -640,14 +638,14 @@
                         <a class="mailto" target="_blank" href="Mailto:loic.rossignol66@gmail.com"><span
                                 class="color"><img class="mailto" src="images/mail.png" alt="email-pic"></span></a>
                     </div>
-                    <form id="contact-form">
+                    <form id="contact-form" onsubmit="return sendMail(event)">
                         <div class="input-line">
-                            <input id="name" type="text" placeholder="Nom" class="input-name" required>
-                            <input id="email" type="email" placeholder="Email" class="input-name" required>
+                            <input id="name" name="name" type="text" placeholder="Nom" class="input-name" required>
+                            <input id="email" name="email" type="email" placeholder="Email" class="input-name" required>
                         </div>
-                        <input type="text" id="subject" placeholder="Sujet" class="input-subject" required>
-                        <textarea id="message" class="input-textarea" placeholder="Message" required></textarea>
-                        <button type="submit" id="submit" onclick="sendMail()">Envoyer</button>
+                        <input type="text" id="subject" name="subject" placeholder="Sujet" class="input-subject" required>
+                        <textarea id="message" name="message" class="input-textarea" placeholder="Message" required></textarea>
+                        <button type="submit" id="submit">Envoyer</button>
                         <div id="success-message" style="display: none; color: green;">Message envoyé avec succès!</div>
                         <div id="error-message" style="display: none; color: red;">Erreur lors de l'envoi du message.
                         </div>
