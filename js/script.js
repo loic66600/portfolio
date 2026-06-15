@@ -1,60 +1,58 @@
-async function sendMail(event) {
-    if (event) {
-        event.preventDefault();
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    var forms = document.querySelectorAll(".js-contact-form");
 
-    const payload = {
-        access_key: "c239e419-ca30-4944-b34e-67340b76084e",
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value,
-    };
+    forms.forEach(function (form) {
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
 
-    const successMessage = document.getElementById("success-message");
-    const errorMessage = document.getElementById("error-message");
+            if (!form.reportValidity()) {
+                return;
+            }
 
-    try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-            },
-            body: JSON.stringify(payload)
+            var submitButton = form.querySelector('button[type="submit"]');
+            var defaultLabel = form.querySelector(".contact-submit-label");
+            var loadingLabel = form.querySelector(".contact-submit-loading");
+            var status = form.querySelector(".contact-form-status");
+
+            submitButton.disabled = true;
+            submitButton.setAttribute("aria-busy", "true");
+            status.className = "contact-form-status";
+            status.textContent = "";
+
+            if (defaultLabel && loadingLabel) {
+                defaultLabel.hidden = true;
+                loadingLabel.hidden = false;
+            }
+
+            try {
+                var response = await fetch(form.action, {
+                    method: "POST",
+                    body: new FormData(form),
+                    headers: {
+                        Accept: "application/json"
+                    }
+                });
+                var result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    throw new Error(result.message || "Le service d’envoi n’a pas accepté le message.");
+                }
+
+                form.reset();
+                status.classList.add("is-success");
+                status.textContent = "Votre message a bien été envoyé. Merci, je vous répondrai rapidement.";
+            } catch (error) {
+                status.classList.add("is-error");
+                status.textContent = "L’envoi a échoué. Vous pouvez me contacter directement par email.";
+            } finally {
+                submitButton.disabled = false;
+                submitButton.removeAttribute("aria-busy");
+
+                if (defaultLabel && loadingLabel) {
+                    defaultLabel.hidden = false;
+                    loadingLabel.hidden = true;
+                }
+            }
         });
-
-        const result = await response.json();
-
-        if (result.success) {
-            document.getElementById("name").value = "";
-            document.getElementById("email").value = "";
-            document.getElementById("subject").value = "";
-            document.getElementById("message").value = "";
-
-            errorMessage.style.display = "none";
-            successMessage.style.display = "block";
-            setTimeout(() => {
-                successMessage.style.display = "none";
-            }, 5000);
-
-            return false;
-        }
-
-        successMessage.style.display = "none";
-        errorMessage.style.display = "block";
-        setTimeout(() => {
-            errorMessage.style.display = "none";
-        }, 5000);
-
-        return false;
-    } catch (error) {
-        successMessage.style.display = "none";
-        errorMessage.style.display = "block";
-        setTimeout(() => {
-            errorMessage.style.display = "none";
-        }, 5000);
-
-        return false;
-    }
-}
+    });
+});

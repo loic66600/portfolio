@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Portfolio Website Template" />
+    <meta name="description"
+        content="Découvrez le parcours, les expériences e-commerce, les formations et les compétences techniques de Loïc Rossignol, développeur web." />
     <meta name="keywords"
         content="blog, business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
-    <title>Rossignol Loïc - portfolio personnel</title>
+    <title>Loïc Rossignol | Mon parcours — Développeur web & e-commerce</title>
     <!--favicon-img-->
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <!--favicon-img-->
     <!--main css file should not be removed -->
     <link rel="stylesheet" href="css/index.css">
@@ -18,7 +19,7 @@
     <script src="js/script.js"></script>
 </head>
 
-<body>
+<body class="journey-page">
     <div id="navigation-content">
         <div class="logo">
             <img href="index.html" src="images/l1.png" alt="logo">
@@ -46,100 +47,114 @@
         </a>
     </div>
 
-    <div id="about-content">
+    <main id="about-content">
+        <header class="about-header">
+            <span class="journey-eyebrow">À propos de moi</span>
+            <h1>Mon <span class="color">parcours</span></h1>
+            <p class="header-caption">Expériences, compétences et formations</p>
+        </header>
 
-        <div class="about-header">
-            Mon <span class="color">Parcourt</span>
-            <span class="header-caption">Faire connaissance avec<span class="color"> moi.</span></span>
-        </div>
         <div class="about-main">
             <div class="about-first-paragraph wow">
-                <!--about description-->
-                <span class="about-first-line">
-                    Mon
-                    <span class="color">Parcour</span>
-                    Professionnel </span>
-                <br>
+                <section class="journey-intro" aria-labelledby="journey-intro-title">
+                    <img class="about-image" src="images/moi2.png" alt="Loïc Rossignol, développeur web en situation de travail">
+                    <div class="journey-intro-copy">
+                        <span class="journey-label">Développeur web &amp; e-commerce</span>
+                        <h2 id="journey-intro-title">Loïc <span class="color">Rossignol</span></h2>
+                        <p>Je conçois et améliore des expériences web performantes, accessibles et pensées pour répondre à de vrais objectifs commerciaux.</p>
+                        <a class="journey-back-link" href="index.html">← Retour à l'accueil</a>
+                    </div>
+                </section>
 
-                <!--about picture-->
-                <div>
-                    <img class="about-image" src="images/cartoonize_loic_blanc.png" alt="Your Image">
-                </div>
-                <span class="about-second-line">
-                    <h1>Mon Parcours Professionnel et Mes Compétences</h1>
+                <div class="about-second-line">
+                    <section class="journey-section" aria-labelledby="experience-title">
+                        <div class="journey-section-heading">
+                            <span class="journey-section-number">01</span>
+                            <h2 id="experience-title">Expérience professionnelle</h2>
+                        </div>
 
-                    <h2>Expérience en Sécurité Privée</h2>
-                    <h3>Chef de Poste en Sécurité Privée (6 ans)</h3>
-                    <p>Pendant six ans, j'ai occupé le poste de chef de poste en sécurité privée, une expérience qui m'a
-                        permis de développer des compétences essentielles et transférables :</p>
-                    <ul>
-                        <li><strong>Gestion d'Équipe :</strong> J'ai dirigé et coordonné des équipes de sécurité,
-                            assurant une répartition efficace des tâches et une communication fluide entre les membres.
-                        </li>
-                        <li><strong>Résolution de Problèmes :</strong> J'ai souvent été confronté à des situations
-                            d'urgence nécessitant une évaluation rapide et des décisions efficaces pour assurer la
-                            sécurité des personnes et des biens.</li>
-                        <li><strong>Prise de Décision Rapide :</strong> Mon rôle exigeait de prendre des décisions sous
-                            pression, garantissant la sécurité et la conformité aux protocoles en vigueur.</li>
-                        <li><strong>Relation Client :</strong> J'ai développé une excellente relation avec les clients,
-                            assurant leur satisfaction et répondant à leurs besoins spécifiques en matière de sécurité.
-                        </li>
-                    </ul>
+                        <article class="journey-card">
+                            <span class="journey-card-tag">E-commerce</span>
+                            <h3>Développeur web e-commerce <span>RedwoodPaddle</span></h3>
+                            <p>Gestion, maintenance et amélioration d'un site e-commerce PrestaShop (thème Transformer) dédié à la vente de matériel de paddle.</p>
+                            <ul>
+                                <li><strong>Intégration &amp; maintenance :</strong> mise à jour du thème, ajout de fonctionnalités, corrections de bugs.</li>
+                                <li><strong>Optimisation des performances :</strong> amélioration du score PageSpeed, optimisation des images et mise en place du lazy loading.</li>
+                                <li><strong>SEO :</strong> rédaction et intégration de contenus optimisés, balises méta, maillage interne.</li>
+                                <li><strong>Contenus multilingues :</strong> fiches produits, articles de blog et pages en français et anglais.</li>
+                            </ul>
+                        </article>
 
-                    <h2>Expérience dans le Commerce</h2>
-                    <h3>Relation Clientèle</h3>
-                    <p>Mon expérience dans le commerce m'a permis de renforcer mes compétences en relation client :</p>
-                    <ul>
-                        <li><strong>Service Client :</strong> J'ai assuré un service client de qualité, répondant aux
-                            besoins et aux attentes des clients avec professionnalisme et courtoisie.</li>
-                        <li><strong>Communication :</strong> J'ai développé d'excellentes compétences en communication,
-                            tant verbales qu'écrites, facilitant les interactions avec les clients et les collègues.
-                        </li>
-                    </ul>
+                        <article class="journey-card">
+                            <span class="journey-card-tag">E-commerce</span>
+                            <h3>Développeur web e-commerce <span>PWR-Foil</span></h3>
+                            <p>Contribution au développement et à la maintenance d'un site e-commerce dédié aux eFoils et équipements nautiques.</p>
+                            <ul>
+                                <li><strong>Intégration HTML/CSS :</strong> création et mise en page de sections produits et pages de contenu.</li>
+                                <li><strong>Gestion des contenus :</strong> rédaction de fiches produits, articles de blog et contenus multilingues.</li>
+                                <li><strong>SEO &amp; optimisation :</strong> amélioration du référencement naturel et des performances globales.</li>
+                            </ul>
+                        </article>
 
-                    <h2>Reconversion Professionnelle en Développement Web</h2>
-                    <h3>Passion pour les Nouvelles Technologies et le Développement Informatique</h3>
-                    <p>Passionné par les nouvelles technologies et le développement informatique, j'ai entrepris une
-                        reconversion professionnelle en tant que développeur web full stack. Cette transition m'a permis
-                        de combiner mes compétences techniques et mon expérience professionnelle antérieure pour
-                        apporter une valeur ajoutée significative :</p>
-                    <ul>
-                        <li><strong>Compétences en Programmation :</strong> J'ai acquis des compétences solides en
-                            programmation, maîtrisant les langages et les frameworks nécessaires pour le développement
-                            web full stack.</li>
-                        <li><strong>Adaptabilité :</strong> Mon parcours diversifié démontre ma capacité à m'adapter
-                            rapidement à de nouveaux environnements et à relever des défis variés.</li>
-                        <li><strong>Esprit d'Équipe :</strong> Fort de mon expérience en gestion d'équipe, je suis
-                            capable de travailler efficacement en collaboration avec d'autres développeurs et
-                            professionnels.</li>
-                        <li><strong>Détermination et Enthousiasme :</strong> Ma détermination et mon enthousiasme pour
-                            le développement web me motivent à constamment apprendre et à m'améliorer, contribuant ainsi
-                            de manière significative à votre équipe.</li>
-                    </ul>
+                        <article class="journey-card">
+                            <span class="journey-card-tag">Projet indépendant</span>
+                            <h3>Création de templates professionnels <span>LORN</span></h3>
+                            <p>Conception et développement d'une gamme de templates web pour artisans et commerçants locaux, optimisés pour la conversion et le SEO local.</p>
+                            <ul>
+                                <li><strong>Secteurs couverts :</strong> barbershop, restaurant, fast-food, électricien, peintre, plombier, fleuriste, massage, menuisier…</li>
+                                <li><strong>Technologies :</strong> HTML, CSS, JavaScript, design responsive et animations CSS.</li>
+                                <li><strong>Optimisation :</strong> SEO local, performances, accessibilité et expérience utilisateur mobile.</li>
+                            </ul>
+                        </article>
+                    </section>
 
-                    <h2>Conclusion</h2>
-                    <p>En combinant mon expérience en sécurité privée, mes compétences en relation clientèle et ma
-                        passion pour le développement web, je suis prêt à relever de nouveaux défis et à apporter une
-                        contribution précieuse à votre équipe. Mon parcours diversifié et mes compétences variées font
-                        de moi un atout pour tout projet de développement web.</p>
-                </span>
+                    <div class="journey-grid">
+                        <section class="journey-section journey-panel" aria-labelledby="formation-title">
+                            <div class="journey-section-heading">
+                                <span class="journey-section-number">02</span>
+                                <h2 id="formation-title">Formation</h2>
+                            </div>
+                            <ul>
+                                <li><strong>Licence Développeur Web</strong> — en cours (2024–2025)</li>
+                                <li><strong>CDA — Concepteur Développeur d'Applications</strong> — diplôme obtenu</li>
+                                <li><strong>Développeur Web Full Stack</strong> — diplôme obtenu</li>
+                            </ul>
+                        </section>
 
+                        <section class="journey-section journey-panel" aria-labelledby="skills-title">
+                            <div class="journey-section-heading">
+                                <span class="journey-section-number">03</span>
+                                <h2 id="skills-title">Compétences techniques</h2>
+                            </div>
+                            <ul class="journey-skills">
+                                <li><strong>E-commerce</strong><span>PrestaShop, Shopify, SEO, performance</span></li>
+                                <li><strong>Front-end</strong><span>HTML, CSS, JavaScript, TypeScript, React, Astro</span></li>
+                                <li><strong>Back-end</strong><span>PHP, Symfony, Node.js, MySQL, API REST</span></li>
+                                <li><strong>Mobile</strong><span>Kotlin, Jetpack Compose, Android Studio</span></li>
+                                <li><strong>Outils</strong><span>Git, GitHub, Docker, Figma, PageSpeed, VS Code</span></li>
+                            </ul>
+                        </section>
+                    </div>
 
-                <div class="cv">
-
-                    <a href="https://drive.google.com/file/d/1hroEhizzlgxP0MBL2PYXWgEUluMU8v0N/view?usp=sharing"><button>Download
-                            <span class="colors">CV</span></button></a>
-
+                    <section class="journey-section journey-profile" aria-labelledby="profile-title">
+                        <div>
+                            <span class="journey-section-number">04</span>
+                            <h2 id="profile-title">Travaillons ensemble</h2>
+                            <p>Disponible pour une opportunité en CDI ou alternance. J'apprécie particulièrement les projets mêlant développement, performance, expérience utilisateur et enjeux commerciaux. Basé en Occitanie, ouvert au télétravail et aux déplacements.</p>
+                        </div>
+                        <a class="journey-cta" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1hDRSsoFm1CXHa45t7gJujwWRlKuUWxS0/view?usp=drive_link">
+                            Consulter mon CV
+                        </a>
+                    </section>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <!--copyright-section You Can Remove After Downloading-->
     <div class="footer">
         <div class="footer-text">
-            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> 2024 - Rossignol
-            loïc - Tous droits réservés.
+            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14"> 2026 - Rossignol Loïc — Tous droits réservés.
         </div>
     </div>
     <!--copyright-section-->

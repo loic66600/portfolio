@@ -122,6 +122,32 @@ header {
     background-color: #3a7ae0;
 }
 
+.contact-form button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.contact-botcheck {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+}
+
+.contact-form-status {
+    min-height: 24px;
+    margin: 12px 0 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.contact-form-status.is-success {
+    color: #71dc9c;
+}
+
+.contact-form-status.is-error {
+    color: #ff8e8e;
+}
+
 .contact-info p {
     margin: 10px 0;
     font-size: 20px;

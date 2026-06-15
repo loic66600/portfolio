@@ -6,6 +6,9 @@
 * Author   : sujal
 * 
 ------------------*/
+:root{
+    --accent-color: #c70039;
+}
 ::-webkit-scrollbar{
     width: 4px;
     color:#c70039;
