@@ -1532,13 +1532,16 @@ For devices with smaller width like mobile phone
 
 @media only screen and (max-width: 550px){
     #header{
-        height: auto;
-        min-height: 100vh;
-        padding-bottom: 40px;
+        height: 100vh;
+        height: 100svh;
+        min-height: 0;
+        padding-bottom: 0;
+        overflow: hidden;
     }
     .header-content{
-        height: auto;
-        min-height: 60vh;
+        height: 38vh;
+        height: 38svh;
+        min-height: 0;
         width: 100%;
         float: none;
         display: flex;
@@ -1551,28 +1554,39 @@ For devices with smaller width like mobile phone
         letter-spacing: 2px;
         font-size: 40px;
         position: relative;
-        padding-top: 100px;
+        padding-top: 60px;
+    }
+    .header-content .firstline{
+        font-size: clamp(38px, 12vw, 50px);
+        line-height: 1.05;
+    }
+    .header-content .secondline{
+        min-height: 2.4em;
+        padding-top: 10px;
+        font-size: clamp(18px, 5.5vw, 23px);
+        line-height: 1.25;
     }
     .contact{
         display: none;
     }
     .header-image{
         float: none;
-        width: 80%;
-        height: auto;
-        max-height: 350px;
-        margin: 20px auto 0;
-        padding: 0 20px;
+        width: calc(100% - 24px);
+        height: 62vh;
+        height: 62svh;
+        max-height: none;
+        margin: 0 auto;
+        padding: 0;
         display: flex;
         justify-content: center;
     }
     .header-image img{
         width: 100%;
-        height: 280px;
+        height: 100%;
         object-fit: cover;
         object-position: center top;
         border-radius: 8px;
-        max-height: 280px;
+        max-height: none;
     }
     .social-media-links{
         width: 100%;
