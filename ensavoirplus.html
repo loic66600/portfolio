@@ -1,164 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Découvrez le parcours, les expériences e-commerce, les formations et les compétences techniques de Loïc Rossignol, développeur web." />
-    <meta name="keywords"
-        content="blog, business card, creative, creative portfolio, cv theme, online resume, personal, portfolio, professional cv, responsive portfolio, resume, resume theme, vcard" />
-    <title>Loïc Rossignol | Mon parcours — Développeur web & e-commerce</title>
-    <!--favicon-img-->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <!--favicon-img-->
-    <!--main css file should not be removed -->
-    <link rel="stylesheet" href="css/index.css">
-    <!--main css file-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
-    <script src="js/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171916">
+<meta name="description" content="Développement web et mobile, e-commerce, product building et automatisations. Découvrez le parcours de Loïc Rossignol et le projet LORN DIGITAL STUDIO.">
+<title>Mon parcours — Loïc Rossignol</title>
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/space-grotesk-700.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/studio.css">
+<meta property="og:title" content="Mon parcours — Loïc Rossignol">
+<meta property="og:description" content="Développement web et mobile, e-commerce, product building et automatisations. Découvrez le parcours de Loïc Rossignol et le projet LORN DIGITAL STUDIO.">
+<link rel="canonical" href="https://loic66600.github.io/portfolio/ensavoirplus.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://loic66600.github.io/portfolio/images/social-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script defer src="js/vendor/gsap.min.js">
+</script>
+<script defer src="js/vendor/ScrollTrigger.min.js">
+</script>
+<script defer src="js/studio.js">
+</script>
 </head>
-
-<body class="journey-page">
-    <div id="navigation-content">
-        <div class="logo">
-            <img href="index.html" src="images/l1.png" alt="logo">
-        </div>
-        <div class="navigation-close">
-            <span class="close-first"></span>
-            <span class="close-second"></span>
-        </div>
-        <div class="navigation-links">
-            <a href="#" data-text="HOME" id="home-link">HOME</a>
-            <a href="#" data-text="ABOUT" id="about-link">A PROPOS</a>
-            <a href="#" data-text="BLOG" id="blog-link">BLOG</a>
-            <a href="#" data-text="PORTFOLIO" id="portfolio-link">PORTFOLIO</a>
-            <a href="#" data-text="CONTACT" id="contact-link">CONTACT</a>
-        </div>
-    </div>
-    <div id="navigation-bar">
-        <a href="index.html"><img src="images/l1.png" alt="logo"></a>
-        <a href="index.html">
-            <div class="menubar">
-                <span class="first-span"></span>
-                <span class="second-span"></span>
-                <span class="third-span"></span>
-            </div>
-        </a>
-    </div>
-
-    <main id="about-content">
-        <header class="about-header">
-            <span class="journey-eyebrow">À propos de moi</span>
-            <h1>Mon <span class="color">parcours</span></h1>
-            <p class="header-caption">Expériences, compétences et formations</p>
-        </header>
-
-        <div class="about-main">
-            <div class="about-first-paragraph wow">
-                <section class="journey-intro" aria-labelledby="journey-intro-title">
-                    <img class="about-image" src="images/moi2.png" alt="Loïc Rossignol, développeur web en situation de travail">
-                    <div class="journey-intro-copy">
-                        <span class="journey-label">Développeur web &amp; e-commerce</span>
-                        <h2 id="journey-intro-title">Loïc <span class="color">Rossignol</span></h2>
-                        <p>Je conçois et améliore des expériences web performantes, accessibles et pensées pour répondre à de vrais objectifs commerciaux.</p>
-                        <a class="journey-back-link" href="index.html">← Retour à l'accueil</a>
-                    </div>
-                </section>
-
-                <div class="about-second-line">
-                    <section class="journey-section" aria-labelledby="experience-title">
-                        <div class="journey-section-heading">
-                            <span class="journey-section-number">01</span>
-                            <h2 id="experience-title">Expérience professionnelle</h2>
-                        </div>
-
-                        <article class="journey-card">
-                            <span class="journey-card-tag">E-commerce</span>
-                            <h3>Développeur web e-commerce <span>RedwoodPaddle</span></h3>
-                            <p>Gestion, maintenance et amélioration d'un site e-commerce PrestaShop (thème Transformer) dédié à la vente de matériel de paddle.</p>
-                            <ul>
-                                <li><strong>Intégration &amp; maintenance :</strong> mise à jour du thème, ajout de fonctionnalités, corrections de bugs.</li>
-                                <li><strong>Optimisation des performances :</strong> amélioration du score PageSpeed, optimisation des images et mise en place du lazy loading.</li>
-                                <li><strong>SEO :</strong> rédaction et intégration de contenus optimisés, balises méta, maillage interne.</li>
-                                <li><strong>Contenus multilingues :</strong> fiches produits, articles de blog et pages en français et anglais.</li>
-                            </ul>
-                        </article>
-
-                        <article class="journey-card">
-                            <span class="journey-card-tag">E-commerce</span>
-                            <h3>Développeur web e-commerce <span>PWR-Foil</span></h3>
-                            <p>Contribution au développement et à la maintenance d'un site e-commerce dédié aux eFoils et équipements nautiques.</p>
-                            <ul>
-                                <li><strong>Intégration HTML/CSS :</strong> création et mise en page de sections produits et pages de contenu.</li>
-                                <li><strong>Gestion des contenus :</strong> rédaction de fiches produits, articles de blog et contenus multilingues.</li>
-                                <li><strong>SEO &amp; optimisation :</strong> amélioration du référencement naturel et des performances globales.</li>
-                            </ul>
-                        </article>
-
-                        <article class="journey-card">
-                            <span class="journey-card-tag">Projet indépendant</span>
-                            <h3>Création de templates professionnels <span>LORN</span></h3>
-                            <p>Conception et développement d'une gamme de templates web pour artisans et commerçants locaux, optimisés pour la conversion et le SEO local.</p>
-                            <ul>
-                                <li><strong>Secteurs couverts :</strong> barbershop, restaurant, fast-food, électricien, peintre, plombier, fleuriste, massage, menuisier…</li>
-                                <li><strong>Technologies :</strong> HTML, CSS, JavaScript, design responsive et animations CSS.</li>
-                                <li><strong>Optimisation :</strong> SEO local, performances, accessibilité et expérience utilisateur mobile.</li>
-                            </ul>
-                        </article>
-                    </section>
-
-                    <div class="journey-grid">
-                        <section class="journey-section journey-panel" aria-labelledby="formation-title">
-                            <div class="journey-section-heading">
-                                <span class="journey-section-number">02</span>
-                                <h2 id="formation-title">Formation</h2>
-                            </div>
-                            <ul>
-                                <li><strong>Licence Développeur Web</strong> — en cours (2024–2025)</li>
-                                <li><strong>CDA — Concepteur Développeur d'Applications</strong> — diplôme obtenu</li>
-                                <li><strong>Développeur Web Full Stack</strong> — diplôme obtenu</li>
-                            </ul>
-                        </section>
-
-                        <section class="journey-section journey-panel" aria-labelledby="skills-title">
-                            <div class="journey-section-heading">
-                                <span class="journey-section-number">03</span>
-                                <h2 id="skills-title">Compétences techniques</h2>
-                            </div>
-                            <ul class="journey-skills">
-                                <li><strong>E-commerce</strong><span>PrestaShop, Shopify, SEO, performance</span></li>
-                                <li><strong>Front-end</strong><span>HTML, CSS, JavaScript, TypeScript, React, Astro</span></li>
-                                <li><strong>Back-end</strong><span>PHP, Symfony, Node.js, MySQL, API REST</span></li>
-                                <li><strong>Mobile</strong><span>Kotlin, Jetpack Compose, Android Studio</span></li>
-                                <li><strong>Outils</strong><span>Git, GitHub, Docker, Figma, PageSpeed, VS Code</span></li>
-                            </ul>
-                        </section>
-                    </div>
-
-                    <section class="journey-section journey-profile" aria-labelledby="profile-title">
-                        <div>
-                            <span class="journey-section-number">04</span>
-                            <h2 id="profile-title">Travaillons ensemble</h2>
-                            <p>Disponible pour une opportunité en CDI ou alternance. J'apprécie particulièrement les projets mêlant développement, performance, expérience utilisateur et enjeux commerciaux. Basé en Occitanie, ouvert au télétravail et aux déplacements.</p>
-                        </div>
-                        <a class="journey-cta" target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1Mcsu7r9IUXrlvK-7ijEL0aFp3JCg3khZ/view?usp=drive_link">
-                            Consulter mon CV
-                        </a>
-                    </section>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!--copyright-section You Can Remove After Downloading-->
-    <div class="footer">
-        <div class="footer-text">
-            <img src="./images/copyright.png" alt="copyright-img" class="images" height="14"> 2026 - Rossignol Loïc — Tous droits réservés.
-        </div>
-    </div>
-    <!--copyright-section-->
-
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-header">
+<a class="brand" href="index.html" aria-label="Loïc Rossignol — accueil">
+<svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+<path d="M7 5h7v24h20v7H7z" fill="currentColor"/>
+<circle cx="29" cy="11" r="7" fill="#ff6b35"/>
+</svg>
+<span>LOÏC ROSSIGNOL<span class="brand-caption">DEVELOPER & PRODUCT BUILDER</span>
+</span>
+</a>
+<nav class="nav" id="main-nav" aria-label="Navigation principale">
+<a href="index.html#projets">Projets</a>
+<a href="index.html#expertises">Expertises</a>
+<a href="index.html#apropos">À propos</a>
+<a href="contact.html" class="nav-contact">Parlons de votre projet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</a>
+</nav>
+<button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false">
+<span>Menu</span>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M3 8h18M3 16h18"/>
+</svg>
+</button>
+</header>
+<main id="main">
+<section class="subpage-hero">
+<a class="back-link" href="index.html#apropos">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg> Retour au portfolio</a>
+<h1>Curieux de nature.<br>
+<span class="accent">Builder par passion.</span>
+</h1>
+<p>Du e-commerce aux applications mobiles, de l’interface aux automatisations : je construis des expériences qui prennent tout leur sens à l’usage.</p>
+</section>
+<div class="journey-layout">
+<aside class="journey-profile">
+<img src="images/loic-rossignol.jpg" alt="Portrait de Loïc Rossignol" width="800" height="1000">
+<p>Loïc Rossignol<br>Développeur web & mobile · Product builder<br>Perpignan, Occitanie</p>
+<a class="button button-light" href="https://drive.google.com/file/d/1Mcsu7r9IUXrlvK-7ijEL0aFp3JCg3khZ/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Consulter mon CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</a>
+</aside>
+<div class="journey-content">
+<section class="journey-group">
+<h2>Le terrain comme école.</h2>
+<article class="journey-item">
+<h3>LORN DIGITAL STUDIO</h3>
+<p class="role">Société en cours de création</p>
+<p>Je prépare un studio qui réunit création web, applications mobiles, product building et automatisations. Mon objectif : accompagner les idées de leur première forme jusqu’à leur utilisation au quotidien.</p>
+<p>Avec n8n, Make et les outils no-code, je connecte les produits aux processus métier. ViteMonSite est le projet du studio consacré à la présence en ligne des artisans et des commerçants.</p>
+<a class="text-link" href="https://lorn-digital-studio.fr/" target="_blank" rel="noopener noreferrer">Le studio en préparation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</a>
+</article>
+<article class="journey-item">
+<h3>RedwoodPaddle</h3>
+<p class="role">Développement web & e-commerce</p>
+<p>Gestion, maintenance et amélioration d’un site PrestaShop consacré au matériel de paddle.</p>
+<ul>
+<li>Intégration de fonctionnalités et évolution du thème Transformer.</li>
+<li>Optimisation des images, du chargement et des performances.</li>
+<li>Référencement naturel, maillage interne et contenus français / anglais.</li>
+</ul>
+</article>
+<article class="journey-item">
+<h3>PWR-Foil</h3>
+<p class="role">Développement web & contenus e-commerce</p>
+<p>Contribution au développement et à la maintenance d’un site dédié aux eFoils et aux équipements nautiques : intégration HTML/CSS, pages produits, contenus multilingues et optimisation SEO.</p>
+</article>
+<article class="journey-item">
+<h3>Créations indépendantes</h3>
+<p class="role">Portfolios, templates & applications</p>
+<p>Des portfolios à forte identité et une gamme de templates destinés aux artisans et commerçants : restaurants, barbershops, électriciens, peintres… Je développe aussi des applications web et mobiles et des intégrations sur mesure.</p>
+</article>
+</section>
+<section class="journey-group">
+<h2>Ma boîte à outils.</h2>
+<article class="journey-item">
+<h3>Interfaces & produits</h3>
+<p>HTML, CSS, JavaScript, TypeScript, React, Astro, Figma, GSAP.</p>
+</article>
+<article class="journey-item">
+<h3>Applications & données</h3>
+<p>PHP, Symfony, Node.js, MySQL, API REST, Kotlin, Jetpack Compose, Android Studio.</p>
+</article>
+<article class="journey-item">
+<h3>Automatisation & e-commerce</h3>
+<p>n8n, Make, outils no-code, webhooks, PrestaShop, Shopify, SEO et performance.</p>
+</article>
+<article class="journey-item">
+<h3>Environnement de travail</h3>
+<p>Git, GitHub, Docker, Figma et PageSpeed.</p>
+</article>
+</section>
+<section class="journey-group">
+<h2>Les fondations.</h2>
+<article class="journey-item">
+<h3>Concepteur Développeur d’Applications</h3>
+<p>Diplôme obtenu.</p>
+</article>
+<article class="journey-item">
+<h3>Développeur Web Full Stack</h3>
+<p>Diplôme obtenu.</p>
+</article>
+<a class="button button-orange" href="contact.html">Construisons la suite <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</a>
+</section>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+<a class="footer-brand" href="index.html">LOÏC ROSSIGNOL<span>Développeur créatif · Product builder</span>
+</a>
+<div class="footer-links">
+<a href="https://github.com/loic66600" target="_blank" rel="noopener noreferrer">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/lo%C3%AFc-rossignol-794644228/" target="_blank" rel="noopener noreferrer">LinkedIn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</a>
+<a href="https://lorn-digital-studio.fr/" target="_blank" rel="noopener noreferrer">LORN Studio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</a>
+</div>
+<div class="footer-bottom">
+<span>© 2026 Loïc Rossignol · Fait avec intention, à Perpignan.</span>
+<button type="button" class="motion-toggle" aria-pressed="false">Réduire les animations</button>
+<a href="#main">Retour en haut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M12 3v17m-7-7 7 7 7-7"/>
+</svg>
+</a>
+</div>
+</footer>
 </body>
-
 </html>

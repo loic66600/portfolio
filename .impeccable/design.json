@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T16:16:36.153Z",
+  "title": "Design System: LORN — Creative engineering",
+  "extensions": {
+    "colorMeta": {
+      "orange": {
+        "role": "primary",
+        "displayName": "Orange création",
+        "tonalRamp": [
+          "oklch(15.00% 0.1926 39.23)",
+          "oklch(26.43% 0.1926 39.23)",
+          "oklch(37.86% 0.1926 39.23)",
+          "oklch(49.29% 0.1926 39.23)",
+          "oklch(60.71% 0.1926 39.23)",
+          "oklch(72.14% 0.1926 39.23)",
+          "oklch(83.57% 0.1926 39.23)",
+          "oklch(95.00% 0.1926 39.23)"
+        ]
+      },
+      "lime": {
+        "role": "secondary",
+        "displayName": "Vert atelier",
+        "tonalRamp": [
+          "oklch(15.00% 0.1494 119.10)",
+          "oklch(26.43% 0.1494 119.10)",
+          "oklch(37.86% 0.1494 119.10)",
+          "oklch(49.29% 0.1494 119.10)",
+          "oklch(60.71% 0.1494 119.10)",
+          "oklch(72.14% 0.1494 119.10)",
+          "oklch(83.57% 0.1494 119.10)",
+          "oklch(95.00% 0.1494 119.10)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Encre végétale",
+        "tonalRamp": [
+          "oklch(15.00% 0.0066 134.98)",
+          "oklch(26.43% 0.0066 134.98)",
+          "oklch(37.86% 0.0066 134.98)",
+          "oklch(49.29% 0.0066 134.98)",
+          "oklch(60.71% 0.0066 134.98)",
+          "oklch(72.14% 0.0066 134.98)",
+          "oklch(83.57% 0.0066 134.98)",
+          "oklch(95.00% 0.0066 134.98)"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panneau encre",
+        "tonalRamp": [
+          "oklch(15.00% 0.0118 128.98)",
+          "oklch(26.43% 0.0118 128.98)",
+          "oklch(37.86% 0.0118 128.98)",
+          "oklch(49.29% 0.0118 128.98)",
+          "oklch(60.71% 0.0118 128.98)",
+          "oklch(72.14% 0.0118 128.98)",
+          "oklch(83.57% 0.0118 128.98)",
+          "oklch(95.00% 0.0118 128.98)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papier ivoire",
+        "tonalRamp": [
+          "oklch(15.00% 0.0107 100.82)",
+          "oklch(26.43% 0.0107 100.82)",
+          "oklch(37.86% 0.0107 100.82)",
+          "oklch(49.29% 0.0107 100.82)",
+          "oklch(60.71% 0.0107 100.82)",
+          "oklch(72.14% 0.0107 100.82)",
+          "oklch(83.57% 0.0107 100.82)",
+          "oklch(95.00% 0.0107 100.82)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Gris sauge clair",
+        "tonalRamp": [
+          "oklch(15.00% 0.0160 123.12)",
+          "oklch(26.43% 0.0160 123.12)",
+          "oklch(37.86% 0.0160 123.12)",
+          "oklch(49.29% 0.0160 123.12)",
+          "oklch(60.71% 0.0160 123.12)",
+          "oklch(72.14% 0.0160 123.12)",
+          "oklch(83.57% 0.0160 123.12)",
+          "oklch(95.00% 0.0160 123.12)"
+        ]
+      },
+      "paper-muted": {
+        "role": "neutral",
+        "displayName": "Gris olive",
+        "tonalRamp": [
+          "oklch(15.00% 0.0183 127.11)",
+          "oklch(26.43% 0.0183 127.11)",
+          "oklch(37.86% 0.0183 127.11)",
+          "oklch(49.29% 0.0183 127.11)",
+          "oklch(60.71% 0.0183 127.11)",
+          "oklch(72.14% 0.0183 127.11)",
+          "oklch(83.57% 0.0183 127.11)",
+          "oklch(95.00% 0.0183 127.11)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Filet sombre",
+        "tonalRamp": [
+          "oklch(15.00% 0.0180 129.01)",
+          "oklch(26.43% 0.0180 129.01)",
+          "oklch(37.86% 0.0180 129.01)",
+          "oklch(49.29% 0.0180 129.01)",
+          "oklch(60.71% 0.0180 129.01)",
+          "oklch(72.14% 0.0180 129.01)",
+          "oklch(83.57% 0.0180 129.01)",
+          "oklch(95.00% 0.0180 129.01)"
+        ]
+      },
+      "paper-line": {
+        "role": "neutral",
+        "displayName": "Filet papier",
+        "tonalRamp": [
+          "oklch(15.00% 0.0179 117.34)",
+          "oklch(26.43% 0.0179 117.34)",
+          "oklch(37.86% 0.0179 117.34)",
+          "oklch(49.29% 0.0179 117.34)",
+          "oklch(60.71% 0.0179 117.34)",
+          "oklch(72.14% 0.0179 117.34)",
+          "oklch(83.57% 0.0179 117.34)",
+          "oklch(95.00% 0.0179 117.34)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Titre d’accueil, avec variantes responsives décrites dans DESIGN.md."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Titres de section."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Titres des projets principaux."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base du document ; tailles locales plus compactes pour les paragraphes de section."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Métadonnées et repères éditoriaux."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Actions principales avec flèche."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Propriété CSS --ease pour les transitions de liens, boutons et images."
+      },
+      {
+        "name": "button-hover",
+        "value": "transform .3s var(--ease); translateY(-3px)",
+        "purpose": "Léger soulèvement des boutons."
+      },
+      {
+        "name": "project-preview",
+        "value": "transform .75s var(--ease); scale(1.025)",
+        "purpose": "Agrandissement discret des aperçus au survol."
+      },
+      {
+        "name": "hero-title",
+        "value": "1.1s; stagger .13s; expo.out",
+        "purpose": "Entrée des trois lignes du titre."
+      },
+      {
+        "name": "hero-sculpture",
+        "value": "1.8s; expo.out",
+        "purpose": "Entrée de la sculpture ; mouvement continu ensuite limité au viewport."
+      },
+      {
+        "name": "marquee",
+        "value": "35s linear infinite",
+        "purpose": "Bandeau typographique décoratif."
+      },
+      {
+        "name": "workflow",
+        "value": "2.8s linear infinite; delay 1.4s for output",
+        "purpose": "Particules de connexion du schéma."
+      },
+      {
+        "name": "scenario-change",
+        "value": ".5s; stagger .08s; power3.out",
+        "purpose": "Transition des nœuds après changement de scénario."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation: none; transition-duration: .01ms; scroll-behavior: auto",
+        "purpose": "Préférence système ou manuelle ; effets GSAP désactivés, canvas statique et galerie native."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-max",
+        "value": "560px"
+      },
+      {
+        "name": "tablet-max",
+        "value": "800px"
+      },
+      {
+        "name": "compact-max",
+        "value": "1100px"
+      },
+      {
+        "name": "wide-min",
+        "value": "1600px"
+      },
+      {
+        "name": "horizontal-gallery-width-min",
+        "value": "900px"
+      },
+      {
+        "name": "horizontal-gallery-height-min",
+        "value": "560px"
+      },
+      {
+        "name": "compact-desktop-height-max",
+        "value": "800px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton papier",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Bouton de contenu avec flèche diagonale ; variante réelle du portfolio.",
+      "html": "<button type=\"button\" class=\"ds-button-light\">Explorer mes projets<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></button>",
+      "css": ".ds-button-light{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;padding:15px 22px;min-height:52px;border:0;border-radius:2px;background:var(--paper,#f2f1e9);color:var(--ink,#171916);font:700 12px/1.75 var(--body,'Manrope',sans-serif);cursor:pointer;transition:background .25s,color .25s,transform .3s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button-light svg{width:18px;height:18px;flex-shrink:0}.ds-button-light:hover{transform:translateY(-3px);background:var(--orange,#ff6b35);}.ds-button-light:focus-visible{outline:3px solid var(--orange,#ff6b35);outline-offset:7px}.ds-button-light:disabled{cursor:wait;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-button-light{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Bouton encre",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Bouton de contenu avec flèche diagonale ; variante réelle du portfolio.",
+      "html": "<button type=\"button\" class=\"ds-button-dark\">Mon parcours<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></button>",
+      "css": ".ds-button-dark{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;padding:15px 22px;min-height:52px;border:0;border-radius:2px;background:var(--ink,#171916);color:var(--paper,#f2f1e9);font:700 12px/1.75 var(--body,'Manrope',sans-serif);cursor:pointer;transition:background .25s,color .25s,transform .3s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button-dark svg{width:18px;height:18px;flex-shrink:0}.ds-button-dark:hover{transform:translateY(-3px);}.ds-button-dark:focus-visible{outline:3px solid var(--orange,#ff6b35);outline-offset:7px}.ds-button-dark:disabled{cursor:wait;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-button-dark{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Bouton orange",
+      "kind": "button",
+      "refersTo": "button-orange",
+      "description": "Bouton de contenu avec flèche diagonale ; variante réelle du portfolio.",
+      "html": "<button type=\"button\" class=\"ds-button-orange\">Envoyer mon message<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></button>",
+      "css": ".ds-button-orange{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;padding:15px 22px;min-height:52px;border:0;border-radius:2px;background:var(--orange,#ff6b35);color:var(--ink,#171916);font:700 12px/1.75 var(--body,'Manrope',sans-serif);cursor:pointer;transition:background .25s,color .25s,transform .3s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button-orange svg{width:18px;height:18px;flex-shrink:0}.ds-button-orange:hover{transform:translateY(-3px);}.ds-button-orange:focus-visible{outline:3px solid var(--orange,#ff6b35);outline-offset:7px}.ds-button-orange:disabled{cursor:wait;opacity:.65}@media(prefers-reduced-motion:reduce){.ds-button-orange{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Champ de contact",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Champ étiqueté sur fond panneau ; les erreurs et confirmations appartiennent au statut du formulaire.",
+      "html": "<label class=\"ds-field\">Votre e-mail *<input type=\"email\" name=\"email\" placeholder=\"vous@entreprise.fr\" autocomplete=\"email\" required></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:9px;color:var(--paper,#f2f1e9);font:400 11px/1.75 var(--body,'Manrope',sans-serif)}.ds-field input{width:100%;min-height:48px;border:0;border-bottom:1px solid #69715e;border-radius:2px 2px 0 0;padding:14px 15px;background:var(--panel,#22251f);color:var(--paper,#f2f1e9);caret-color:var(--orange,#ff6b35);font:400 13px/1.75 var(--body,'Manrope',sans-serif)}.ds-field input::placeholder{color:var(--muted,#b4b8ad)}.ds-field input:focus-visible{outline:2px solid var(--orange,#ff6b35);outline-offset:4px}@media(max-width:560px){.ds-field input{font-size:16px}}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Extrait de navigation de bureau avec soulignement animé ; le panneau mobile est décrit dans DESIGN.md.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navigation principale\"><a href=\"#projets\">Projets</a><a href=\"#expertises\">Expertises</a><a href=\"#apropos\">À propos</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;flex-wrap:wrap;gap:36px;color:var(--paper,#f2f1e9);font:400 12px/1.75 var(--body,'Manrope',sans-serif)}.ds-nav a{position:relative;color:inherit;text-decoration:none}.ds-nav a:after{content:'';height:1px;background:var(--orange,#ff6b35);position:absolute;left:0;right:0;bottom:-5px;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-nav a:hover:after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:3px solid var(--orange,#ff6b35);outline-offset:7px}@media(prefers-reduced-motion:reduce){.ds-nav a:after{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Tags d’outils",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Tags informatifs sans comportement de sélection.",
+      "html": "<div class=\"ds-tags\"><span>React</span><span>Shopify</span><span>n8n</span></div>",
+      "css": ".ds-tags{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;padding-top:5px;color:var(--muted,#b4b8ad);font:400 10px/1.75 var(--body,'Manrope',sans-serif)}.ds-tags span{padding:5px 12px;border:1px solid #505749;border-radius:30px;white-space:nowrap}"
+    },
+    {
+      "name": "Scénario d’automatisation",
+      "kind": "chip",
+      "refersTo": "scenario",
+      "description": "États sélectionné et disponible ; la mise à jour du scénario est assurée par le script de la page.",
+      "html": "<div class=\"ds-scenarios\" role=\"group\" aria-label=\"Choisir un exemple\"><button type=\"button\" aria-pressed=\"true\">Demandes clients</button><button type=\"button\" aria-pressed=\"false\">Contenus</button></div>",
+      "css": ".ds-scenarios{display:flex;flex-wrap:wrap;gap:8px}.ds-scenarios button{font:400 10px/1.75 var(--body,'Manrope',sans-serif);padding:8px 11px;min-height:44px;border:1px solid #515747;border-radius:4px;background:transparent;color:var(--muted,#b4b8ad);cursor:pointer;transition:color .2s,background .2s}.ds-scenarios button[aria-pressed=true]{background:var(--lime,#d9f279);color:var(--ink,#171916);border-color:var(--lime,#d9f279)}.ds-scenarios button:focus-visible{outline:3px solid var(--orange,#ff6b35);outline-offset:7px}@media(prefers-reduced-motion:reduce){.ds-scenarios button{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Lien circulaire",
+      "kind": "button",
+      "refersTo": "circle-link",
+      "description": "Accès complémentaire à un projet sur fond clair.",
+      "html": "<a class=\"ds-circle\" href=\"#projets\" aria-label=\"Ouvrir les projets\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\"/></svg></a>",
+      "css": ".ds-circle{display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;border:1px solid currentColor;border-radius:50%;color:var(--ink,#171916);text-decoration:none;transition:background .25s,color .25s}.ds-circle svg{width:18px;height:18px}.ds-circle:hover{background:var(--ink,#171916);color:var(--paper,#f2f1e9)}.ds-circle:focus-visible{outline:3px solid var(--orange,#ff6b35);outline-offset:7px}@media(prefers-reduced-motion:reduce){.ds-circle{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Ligne d’expertise",
+      "kind": "custom",
+      "description": "Disclosure HTML natif avec signe plus et titre orange à l’ouverture.",
+      "html": "<details class=\"ds-expertise\" open><summary><h3>Automatisations & no-code</h3><span class=\"ds-plus\" aria-hidden=\"true\"></span></summary><p>Je connecte vos outils et automatise vos tâches répétitives.</p></details>",
+      "css": ".ds-expertise{border-top:1px solid var(--line,#3d4238);border-bottom:1px solid var(--line,#3d4238);color:var(--paper,#f2f1e9)}.ds-expertise summary{display:flex;align-items:center;gap:30px;padding:29px 0;list-style:none;cursor:pointer}.ds-expertise summary::-webkit-details-marker{display:none}.ds-expertise h3{margin:0;flex:1;font:500 clamp(22px,2.5vw,35px)/1.08 var(--display,'Space Grotesk',sans-serif);letter-spacing:-.04em}.ds-plus{width:20px;height:20px;position:relative;flex-shrink:0;margin:0 5px}.ds-plus:before,.ds-plus:after{content:'';position:absolute;left:0;top:9px;width:20px;height:1px;background:currentColor;transition:transform .3s}.ds-plus:after{transform:rotate(90deg)}.ds-expertise[open] .ds-plus:after{transform:rotate(0)}.ds-expertise[open] h3{color:var(--orange,#ff6b35)}.ds-expertise p{margin:0;padding-bottom:30px;color:var(--muted,#b4b8ad);font:400 13px/1.75 var(--body,'Manrope',sans-serif)}.ds-expertise summary:focus-visible{outline:3px solid var(--orange,#ff6b35);outline-offset:7px}@media(prefers-reduced-motion:reduce){.ds-plus:before,.ds-plus:after{transition-duration:.01ms!important}}"
+    },
+    {
+      "name": "Laboratoire d’automatisation",
+      "kind": "card",
+      "refersTo": "automation-lab",
+      "description": "Extrait de la surface sombre et de son moteur ; l’expérience complète comporte scénarios, entrées et sorties.",
+      "html": "<div class=\"ds-lab\"><div class=\"ds-lab-header\">LE LABO DES AUTOMATISATIONS</div><div class=\"ds-engine\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><circle cx=\"7\" cy=\"16\" r=\"3\"/><circle cx=\"25\" cy=\"7\" r=\"3\"/><circle cx=\"25\" cy=\"25\" r=\"3\"/><path d=\"M10 16h5l7-9M15 16l7 9\"/></svg><strong>n8n / Make</strong><small>Connecter. Transformer.</small></div><div class=\"ds-lab-footer\">DÉMONSTRATION</div></div>",
+      "css": ".ds-lab{background:var(--ink,#171916);color:var(--paper,#f2f1e9);padding:25px;border-radius:12px;font:400 11px/1.75 var(--body,'Manrope',sans-serif)}.ds-lab-header{font-size:8px;letter-spacing:.06em;padding-bottom:20px;border-bottom:1px solid var(--line,#3d4238)}.ds-engine{display:flex;flex-direction:column;align-items:center;gap:8px;margin:35px auto;text-align:center;border:1px solid var(--orange,#ff6b35);border-radius:12px;padding:20px 6px;max-width:180px}.ds-engine svg{width:34px;height:34px;color:var(--orange,#ff6b35);margin-bottom:5px}.ds-engine strong{color:var(--orange,#ff6b35)}.ds-engine small{font-size:8px;line-height:1.6;color:var(--muted,#b4b8ad)}.ds-lab-footer{border-top:1px solid var(--line,#3d4238);padding-top:16px;font-size:7px;letter-spacing:.04em;color:var(--muted,#b4b8ad)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "L’affiche de studio numérique",
+    "overview": "L’affiche de studio numérique associe de grandes compositions typographiques à des objets qui montrent le travail en mouvement. Les fonds encre, papier et les aplats orange ou végétal rythment la lecture ; les réalisations gardent leur propre identité dans leurs aperçus.\n\nLa géométrie des titres, les filets fins et les liens fléchés donnent une présence graphique aux pages. Les textes de présentation restent compacts. Le mouvement accompagne l’exploration sans remplacer le défilement ni le pointeur natifs.",
+    "keyCharacteristics": [
+      "Grands aplats alternés et titres géométriques serrés.",
+      "Aperçus de projets complets, portrait réel et sculpture paramétrique.",
+      "Filets fins, très peu de surfaces encadrées, flèches comme repères d’action.",
+      "Interactions natives et préférence de mouvement réduit persistante."
+    ],
+    "rules": [
+      {
+        "name": "The Surface Contrast Rule",
+        "body": "Les aplats papier, orange et végétal portent un texte encre ; les surfaces encre et panneau portent un texte papier ou sauge.",
+        "section": "colors"
+      },
+      {
+        "name": "The Local Type Rule",
+        "body": "Réutiliser les deux familles hébergées dans `fonts/` et leurs graisses présentes ; conserver le resserrement des titres sans l’étendre aux paragraphes.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Surface Rule",
+        "body": "Utiliser la couleur et les séparateurs existants pour structurer les surfaces ; les mouvements de survol ne créent pas de nouvelle ombre.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do réutiliser les couleurs et les deux familles locales définies dans le frontmatter.",
+      "Do laisser les projets mener la galerie et conserver les captures complètes avec object-fit: contain.",
+      "Do garder les libellés, les liens de sortie de galerie, les focus visibles et les états du formulaire.",
+      "Do conserver le scroll natif, les détails HTML et le parcours clavier lors des évolutions.",
+      "Do adapter le mouvement à la préférence système et à la commande de réduction des animations."
+    ],
+    "donts": [
+      "Don't transformer chaque bloc de contenu en carte : les filets et les aplats organisent déjà la page.",
+      "Don't remplacer les aperçus de projets par des chiffres, clients ou résultats inventés.",
+      "Don't masquer un contenu essentiel en attente d’une animation d’entrée.",
+      "Don't réintroduire un curseur personnalisé obligatoire ou intercepter globalement la molette."
+    ]
+  }
+}

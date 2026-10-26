@@ -1,76 +1,60 @@
+# Loïc Rossignol — Portfolio
 
+Refonte du portfolio personnel : web, applications mobiles, product building et automatisations. LORN DIGITAL STUDIO est indiqué comme société en cours de création.
 
-# Mon Portfolio - Rossignol Loïc
+## Prévisualisation
 
-## 🚀 À propos de moi
+Site statique sans dépendance à installer et sans compilation. Avec Node.js 20 ou supérieur :
 
-Bonjour ! Je suis Loïc Rossignol, un jeune développeur passionné par la création d'applications web modernes et interactives. Ce portfolio présente mes compétences et projets en développement web, utilisant HTML, CSS et JavaScript.
+```sh
+npm run dev
+```
 
-## 💻 Technologies utilisées
+Ouvrir http://127.0.0.1:4173. Le port se configure avec la variable PORT. Le serveur est limité à la machine locale et refuse les dossiers cachés.
 
-- HTML5
-- CSS3
-- JavaScript 
-- EmailJS
+## Vérifications
 
+```sh
+npm run check
+```
 
-## 🛠️ Projets
+Contrôle les fichiers, ancres, identifiants, images, liens externes, JSON-LD et syntaxe JavaScript. Teste aussi le formulaire hors réseau : validation, préremplissage, attente, réussite et erreurs. Aucun message réel n’est envoyé pendant ces tests.
 
-### Robbie-Lens
-- Site vitrine pour une photographe professionnelle. Présentation de ses services, galerie dephotos et formulaire de contact pourlesclients potentiels.  
-- HTML5, CSS3
-- https://loic66600.github.io/Robbie-Lens/
-- https://github.com/loic66600/Robbie-Lens
+## Structure
 
-### TechRescue
-- Application web pour un service de dépannage informatique. Interface utilisateur intuitive permettant aux clients de décrire leur problème et de planifier une intervention.
-- Symfony, Twig, Bootstrap
-- https://github.com/loic66600/Tp-TechRescue
+- index.html : accueil, projets, expertises, labo d’automatisation, à propos et contact.
+- contact.html : formulaire Web3Forms conservant la configuration existante.
+- ensavoirplus.html : parcours et compétences.
+- css/studio.css : nouvelle identité et responsive.
+- js/studio.js : navigation, sculpture Canvas, GSAP / ScrollTrigger, scénarios et formulaire.
+- js/vendor/ : GSAP 3.13 et ScrollTrigger, hébergés localement.
+- fonts/ : Space Grotesk et Manrope, avec leurs licences OFL.
+- images/projects/ : captures des réalisations et leur provenance.
+- PRODUCT.md et DESIGN.md : contexte et système visuel.
 
-### Papa pizza
-- Site de commande en ligne pour une pizzeria. Interface conviviale permettant aux clients de personnaliser leurs pizzas, passer commande et suivre la livraison en temps réel.
-- HTML5, CSS3
-- https://loic66600.github.io/pizza/
-- https://github.com/loic66600/pizza
+## Mouvement & accessibilité
 
-## 🌟 Compétences
+Le scroll horizontal épinglé est actif sur les écrans d’au moins 900 px de large et 560 px de haut. Les petits écrans ont une galerie verticale ou un défilement horizontal natif. Tous les contenus restent accessibles sans JavaScript. Les animations respectent prefers-reduced-motion et le bouton de réduction des animations du pied de page. La sculpture est suspendue hors écran et lorsque l’onglet est masqué.
 
-- Développement Full Stack
-- Design Responsive
-- Html5, CSS3, JavaScript
-- Symfony, Twig, Bootstrap
-- React,  
-- PHP, MYSQL, Docker
-- GitHub, Figma
-- EmailJS
+## Réalisations et liens
 
+- [Talyana Rossignol](https://talyana-rossignol-portfolio.vercel.app/#accueil)
+- [VORTEX / Mavrik](https://loic66600.github.io/vortex-mavrik-portfolio/) — concept de démonstration.
+- [Noah Laurent](https://loic66600.github.io/portfolio-noah/) — concept de démonstration.
+- [LORN DIGITAL STUDIO](https://lorn-digital-studio.fr/) — site en préparation.
+- [ViteMonSite — aperçu](https://preview.vitemonsite-artisan.fr/) — aperçu avant lancement, lien utilisé sur le portfolio.
+- [ViteMonSite — site officiel](https://vitemonsite-artisan.fr/) — coming soon.
 
+## Publication
 
-## 📚 Formation
+Branche de revue : feat/portfolio-lorn-redesign. La branche principale et la production ne sont pas modifiées.
 
-- Developpeur Web et web mobile
+Pour GitHub Pages, publier les fichiers statiques de la racine (le fichier .nojekyll est fourni). Conserver css/studio.css, js/studio.js, js/vendor, fonts et toutes les images référencées. Aucun build nécessaire. Si le domaine change, adapter les URL absolues des métadonnées sociales et du JSON-LD.
 
+Les anciennes feuilles de style et scripts du modèle initial sont conservés mais ne sont plus chargés par les trois pages refondues.
 
-## 📞 Contact
+## Services externes
 
-- Email : loic.rossignol66@gmail.com
-- LinkedIn : https://www.linkedin.com/in/lo%C3%AFc-rossignol-794644228/
-- GitHub : https://github.com/loic66600
+Le formulaire envoie à Web3Forms uniquement lors d’une soumission volontaire. Les liens e-mail et WhatsApp restent disponibles en alternative. La clé publique du formulaire existant est conservée. La réception réelle doit être validée par un envoi volontaire du propriétaire.
 
-## 🔗 Liens
-
-- https://loic66600.github.io/Portfolio-personel/
-
-
-## 🚀 Comment exécuter ce projet localement
-
-1. Clonez ce dépôt
-   ```
-   git clone https://github.com/votre-username/votre-portfolio.git
-   ```
-2. Naviguez vers le répertoire du projet
-   ```
-   cd votre-portfolio
-   ```
-3. Ouvrez le fichier `index.html` dans votre navigateur
-
+Animations : [GSAP / ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/) — licence référencée dans les fichiers distribués. Polices : Google Fonts, licences SIL Open Font License jointes.
