@@ -177,13 +177,13 @@ Les rampes OKLCH du sidecar sont des échantillons synthétisés pour la prévis
 
 Les sections occupent la largeur disponible avec une gouttière fluide commune. Seul le conteneur d’accueil possède une largeur maximale de 1760px ; le site n’a pas de conteneur global de 1600px. L’espacement vertical courant suit les trois valeurs `spacing.section*`, avec des exceptions de composition pour la galerie, le bandeau de contact et les projets du studio.
 
-L’accueil utilise deux colonnes (1.1fr / 1fr). Les expertises sont des lignes ; l’atelier et le portrait alternent texte et élément visuel. Les projets complémentaires forment trois colonnes. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
+L’accueil utilise deux colonnes (1.1fr / 1fr). Les applications mobiles occupent deux colonnes égales, séparées par un espace fluide de 28 à 80px ; le second article est décalé de 80px vers le bas. Les expertises sont des lignes ; l’atelier et le portrait alternent texte et élément visuel. Les projets complémentaires forment trois colonnes. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
 
 ### Responsive
 
 - **Au-dessus de 1600px** : accueil et sculpture plus hauts, en-tête de 110px.
 - **À 1100px et moins** : rythme vertical réduit, navigation et grilles plus compactes.
-- **À 800px et moins** : navigation repliée, atelier sur une colonne, formulaire avant les coordonnées ; l’accueil conserve deux colonnes.
+- **À 800px et moins** : navigation repliée, applications et atelier sur une colonne, formulaire avant les coordonnées ; l’accueil conserve deux colonnes. Les articles d’applications perdent leur décalage et sont séparés de 52px ; leur appel au contact s’empile également.
 - **À 560px et moins** : accueil, galerie principale, projets complémentaires, portrait, projets du studio, formulaire et parcours passent en pile verticale.
 - **Écrans larges et peu hauts** : à partir de 900px de largeur et jusqu’à 800px de hauteur, l’accueil et la galerie se compactent selon la hauteur disponible.
 
@@ -193,7 +193,7 @@ La base CSS est une rangée de projets à débordement horizontal natif, avec ai
 
 Avec JavaScript, GSAP et ScrollTrigger disponibles, une largeur d’au moins 900px, une hauteur d’au moins 560px et les animations actives, le chapitre devient horizontal au scroll vertical. Le panneau utilise `position: sticky; top: 0` natif. La hauteur du chapitre ajoute la distance horizontale à la hauteur du panneau ; un écouteur passif applique la translation bornée de la rangée. Il ne s’agit pas d’un épinglage ScrollTrigger ni d’un remplacement du scroll global. Le retour en arrière est symétrique et un focus clavier repositionne le document sur le projet ciblé.
 
-En mode réduit ou sans les bibliothèques d’animation, la galerie revient au débordement horizontal natif au-dessus de 560px et reste verticale à 560px ou moins. Le lien vers les expertises permet de quitter ce chapitre.
+En mode réduit ou sans les bibliothèques d’animation, la galerie revient au débordement horizontal natif au-dessus de 560px et reste verticale à 560px ou moins. Le lien « Découvrir les applications » permet de quitter ce chapitre et mène à la section suivante, `#applications`.
 
 ## Elevation & Depth
 
@@ -220,6 +220,10 @@ Les tags d’outils sont des éléments d’information, en capsules à contour 
 ### Cards / Containers
 
 Les projets principaux sont des articles ouverts, sans cadre de carte : aperçu, catégorie et numéro, titre, description, puis disciplines. Les captures utilisent `object-fit: contain` sur un fond encre ; le rapport du cadre devient 2:1 sur petit écran. Le laboratoire constitue une véritable surface encadrée, sombre sur fond végétal, avec en-tête, scénarios, schéma et légende de démonstration.
+
+Les applications mobiles sont deux articles ouverts sur fond encre. Chacun présente un visuel de marque de 720 × 450px au rapport 8:5, contenu sans recadrage et aux coins de 3px, puis la catégorie, le statut, le titre, les usages, trois fonctionnalités et la stack. Ces visuels représentent l’identité de TirTrack et God of Sparta, pas leurs interfaces. Les statuts « Projet privé » et « En développement » prennent la forme de capsules à filet sombre et texte végétal. Les titres vont de 28 à 42px ; la description utilise 14px avec un interligne de 1.8.
+
+Les articles d’applications restent non cliquables. Un lien commun mène à `contact.html?projet=application`, où le script présélectionne « Application web ou mobile ». Aucun lien de téléchargement n’est présenté pour ces projets privés ou en développement. Cette section statique reprend les couleurs, les filets et les liens existants, sans animation dédiée.
 
 ### Inputs / Fields
 

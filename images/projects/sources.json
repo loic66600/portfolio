@@ -3,7 +3,9 @@
   "files": {
     "talyana.jpg": "Screenshot: https://talyana-rossignol-portfolio.vercel.app/#accueil",
     "vortex.jpg": "Screenshot: https://loic66600.github.io/vortex-mavrik-portfolio/",
-    "noah.jpg": "Screenshot: https://loic66600.github.io/portfolio-noah/"
+    "noah.jpg": "Screenshot: https://loic66600.github.io/portfolio-noah/",
+    "tirtrack.webp": "Copied unchanged on 2026-10-27 from the owner's local LORN Digital Studio: apps/hub/public/images/projects/tirtrack.webp; display authorized by the owner",
+    "god-of-sparta.webp": "Copied unchanged on 2026-10-27 from the owner's local LORN Digital Studio: apps/hub/public/images/projects/god-of-sparta.webp; display authorized by the owner"
   },
   "existingPortrait": "images/moi1.png, supplied in original repository",
   "templateImages": "images/templates/*.webp, supplied in workspace; included explicitly in redesign"

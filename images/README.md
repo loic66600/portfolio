@@ -7,3 +7,5 @@
 - favicon.svg : monogramme géométrique original créé pour ce portfolio.
 
 Les autres images historiques sont conservées sans modification.
+
+Ajout du 27 octobre 2026 : projects/tirtrack.webp et god-of-sparta.webp sont les visuels de marque repris sans modification depuis le projet local LORN Digital Studio, à la demande du propriétaire (720 × 450). Ce sont des présentations de marque, pas des captures des interfaces mobiles.

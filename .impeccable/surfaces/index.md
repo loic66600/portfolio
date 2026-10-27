@@ -6,7 +6,7 @@ Cible : `index.html`. Mode : **Experience**. Pages liées : `contact.html` et `e
 
 ## Audience, job and action
 
-Le visiteur évalue le regard créatif et les compétences web, mobile, e-commerce et automatisation de Loïc. Il explore des projets réels ou explicitement présentés comme concepts/templates, comprend les services, puis ouvre le contact. Les captures de projets, le portrait et le parcours portent la preuve. Le laboratoire illustre un mécanisme et se présente comme une démonstration.
+Le visiteur évalue le regard créatif et les compétences web, mobile, e-commerce et automatisation de Loïc. Il explore des projets réels ou explicitement présentés comme concepts/templates, comprend les services, puis ouvre le contact. Les captures de projets, le portrait et le parcours portent la preuve. La section `#applications` présente aussi TirTrack et God of Sparta à travers leurs identités visuelles, leurs usages et leurs statuts. Le laboratoire illustre un mécanisme et se présente comme une démonstration.
 
 ## Direction contract
 
@@ -16,7 +16,7 @@ Contrat descriptif consolidé depuis la refonte implémentée et la direction pr
 
 **OWN-WORLD:** Encre végétale, papier ivoire, orange et vert atelier ; grands titres géométriques, textes compacts, filets et flèches. Les composants restent plats.
 
-**STORY:** Identité et intention ; trois projets à explorer ; expertises ; démonstration d’automatisation ; sites métiers ; portrait et studio en création ; contact.
+**STORY:** Identité et intention ; trois portfolios à explorer ; TirTrack et God of Sparta dans une section applications mobiles ; expertises ; démonstration d’automatisation ; sites métiers ; portrait et studio en création ; contact.
 
 **FIRST VIEWPORT:** Marque et navigation au-dessus d’un grand titre à gauche, « Des idées qui prennent vie. », accompagné d’une introduction et des accès projets/contact. Sculpture paramétrique orange à droite. Sur mobile, le texte et les actions précèdent la sculpture.
 
@@ -30,9 +30,13 @@ La sculpture canvas réagit à la souris et au scroll ; elle reste fixe avec le 
 
 À 560px ou moins, les projets s’empilent. Dans les autres cas sans animation, la rangée conserve son débordement horizontal natif. Les expertises utilisent des disclosures natifs et le laboratoire propose trois scénarios sans exécuter d’automatisation réelle.
 
+Le lien de sortie de la galerie mène à `#applications`, avant les expertises. Cette section présente deux articles ouverts, non cliquables, avec visuels de marque 720 × 450px : TirTrack (« Projet privé ») puis God of Sparta (« En développement »). Les deux colonnes, décalées de 80px, deviennent une colonne sans décalage à 800px ou moins. Aucun mouvement dédié n’est ajouté. Le lien commun « Parlons de votre application » ouvre `contact.html?projet=application` et présélectionne le type « Application web ou mobile » grâce au script du formulaire. La page parcours renvoie également vers `index.html#applications`.
+
 ## Content and constraints
 
 Conserver les coordonnées, les liens utiles, le formulaire Web3Forms et les ancres historiques. Distinguer les concepts de réalisations clientes. Présenter LORN DIGITAL STUDIO comme une société en cours de création et ViteMonSite comme un aperçu avant lancement. L’interface est en français.
+
+Les applications mobiles reprennent les contenus et visuels du projet local LORN à la demande du propriétaire. Les visuels montrent les marques, pas des écrans des applications ; leur provenance figure dans `images/projects/sources.json` et `images/README.md`. Conserver les statuts privés ou en développement, sans lien vers les dépôts privés ni invitation à télécharger une application en boutique. Cet ajout étend la surface existante ; il ne change pas la direction graphique ni l’autorisation de publication.
 
 ## Open decisions
 

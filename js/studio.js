@@ -243,6 +243,7 @@
   $$('.js-contact-form').forEach(form => {
     const type = new URLSearchParams(location.search).get('projet');
     if (type === 'automatisation' && $('[name=subject]', form)) $('[name=subject]', form).value = 'Automatisation & no-code';
+    if (type === 'application' && $('[name=subject]', form)) $('[name=subject]', form).value = 'Application web ou mobile';
     form.addEventListener('submit', async event => {
       event.preventDefault();
       if (!form.reportValidity()) return;
