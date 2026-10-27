@@ -115,7 +115,7 @@ components:
 
 **Creative North Star: "L’affiche de studio numérique"**
 
-L’affiche de studio numérique associe de grandes compositions typographiques à des objets qui montrent le travail en mouvement. Les fonds encre, papier et les aplats orange ou végétal rythment la lecture ; les réalisations gardent leur propre identité dans leurs aperçus.
+L’affiche de studio numérique associe de grandes compositions typographiques au portrait de Loïc et aux aperçus de son travail. Les fonds encre, papier et les aplats orange ou végétal rythment la lecture ; les réalisations gardent leur propre identité dans leurs aperçus.
 
 La géométrie des titres, les filets fins et les liens fléchés donnent une présence graphique aux pages. Les textes de présentation restent compacts. Le mouvement accompagne l’exploration sans remplacer le défilement ni le pointeur natifs.
 
@@ -124,7 +124,7 @@ Ce document décrit le code de la refonte, construit directement à la demande d
 **Key Characteristics:**
 
 - Grands aplats alternés et titres géométriques serrés.
-- Aperçus de projets complets, portrait réel et sculpture paramétrique.
+- Portrait réel dès l’accueil et aperçus de projets complets, sans recadrage.
 - Filets fins, très peu de surfaces encadrées, flèches comme repères d’action.
 - Interactions natives et préférence de mouvement réduit persistante.
 
@@ -134,7 +134,7 @@ Une palette d’encre végétale et de papier ivoire, ponctuée d’orange vif e
 
 ### Primary
 
-- **Orange création** (`orange`) : accent typographique, sculpture, bandeau de mots, appel au contact et bouton d’envoi.
+- **Orange création** (`orange`) : accent typographique, bandeau de mots, appel au contact et bouton d’envoi.
 
 ### Secondary
 
@@ -177,17 +177,17 @@ Les rampes OKLCH du sidecar sont des échantillons synthétisés pour la prévis
 
 Les sections occupent la largeur disponible avec une gouttière fluide commune. Seul le conteneur d’accueil possède une largeur maximale de 1760px ; le site n’a pas de conteneur global de 1600px. L’espacement vertical courant suit les trois valeurs `spacing.section*`, avec des exceptions de composition pour la galerie, le bandeau de contact et les projets du studio.
 
-L’accueil utilise deux colonnes (1.1fr / 1fr). Les applications mobiles occupent deux colonnes égales, séparées par un espace fluide de 28 à 80px ; le second article est décalé de 80px vers le bas. Les expertises sont des lignes ; l’atelier et le portrait alternent texte et élément visuel. Les projets complémentaires forment trois colonnes. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
+L’accueil utilise deux colonnes (1.1fr / 1fr), avec le titre et les actions à gauche, le portrait légendé à droite. Les applications mobiles occupent deux colonnes égales, séparées par un espace fluide de 28 à 80px ; le second article est décalé de 80px vers le bas. Les expertises sont des lignes ; l’atelier et la section à propos alternent texte et élément visuel. Les cinq sites métiers occupent une galerie horizontale présentant un site à la fois. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
 
 ### Responsive
 
-- **Au-dessus de 1600px** : accueil et sculpture plus hauts, en-tête de 110px.
+- **Au-dessus de 1600px** : accueil plus haut, en-tête de 110px.
 - **À 1100px et moins** : rythme vertical réduit, navigation et grilles plus compactes.
 - **À 800px et moins** : navigation repliée, applications et atelier sur une colonne, formulaire avant les coordonnées ; l’accueil conserve deux colonnes. Les articles d’applications perdent leur décalage et sont séparés de 52px ; leur appel au contact s’empile également.
-- **À 560px et moins** : accueil, galerie principale, projets complémentaires, portrait, projets du studio, formulaire et parcours passent en pile verticale.
+- **À 560px et moins** : accueil, galerie principale, section à propos, projets du studio, formulaire et parcours passent en pile verticale. Le portrait d’accueil précède visuellement le texte. La galerie des sites métiers conserve son défilement horizontal ; sa barre de commande et ses légendes s’empilent.
 - **Écrans larges et peu hauts** : à partir de 900px de largeur et jusqu’à 800px de hauteur, l’accueil et la galerie se compactent selon la hauteur disponible.
 
-### Galerie horizontale
+### Galerie principale au scroll
 
 La base CSS est une rangée de projets à débordement horizontal natif, avec aimantation. Chaque projet mesure `clamp(520px, 59vw, 830px)`, puis 70vw à 800px et moins. Sur petit écran, la liste devient verticale.
 
@@ -195,15 +195,21 @@ Avec JavaScript, GSAP et ScrollTrigger disponibles, une largeur d’au moins 900
 
 En mode réduit ou sans les bibliothèques d’animation, la galerie revient au débordement horizontal natif au-dessus de 560px et reste verticale à 560px ou moins. Le lien « Découvrir les applications » permet de quitter ce chapitre et mène à la section suivante, `#applications`.
 
+### Galerie des sites métiers
+
+La seconde galerie reste horizontale à toutes les tailles, avec un article occupant toute la largeur de sa fenêtre. Elle présente cinq templates : Black & Gold, Le Comptoir Catalan, Éclair Elec 66, Street Fusion et Dupont Peinture. La rangée utilise le débordement natif et l’aimantation au début de chaque article, avec un écart de 28px, réduit à 22px sur petit écran. Les images gardent leur hauteur naturelle et utilisent `object-fit: contain` : l’aperçu complet reste visible, sans cadre qui le recadre.
+
+Des boutons circulaires de 48px et un compteur « 1 / 5 » accompagnent le défilement. La région est accessible au focus ; les touches ArrowLeft et ArrowRight changent de site seulement lorsque cette région elle-même possède le focus. Le toucher, le pavé tactile et la barre de défilement restent natifs. Les boutons et le compteur sont activés par JavaScript ; sans script, les sites restent accessibles par le débordement horizontal. Il n’y a ni lecture automatique ni boucle : les commandes sont désactivées aux extrémités. Le défilement commandé est fluide, ou instantané en mode réduit.
+
 ## Elevation & Depth
 
-Les composants n’utilisent pas d’ombres CSS. Les aplats, les filets et les changements de couleur produisent la séparation. La profondeur de la sculpture est dessinée dans le canvas par projection, tri des anneaux et variation de lumière ; elle ne devient pas un effet d’élévation des cartes. Les aperçus de projets restent plats et gagnent seulement un léger agrandissement au survol.
+Les composants n’utilisent pas d’ombres CSS. Les aplats, les filets et les changements de couleur produisent la séparation. Le portrait et les aperçus de projets restent plats. Les aperçus de la galerie principale gagnent seulement un léger agrandissement au survol ; ceux des sites métiers conservent leur cadrage complet.
 
 **The Flat Surface Rule.** Utiliser la couleur et les séparateurs existants pour structurer les surfaces ; les mouvements de survol ne créent pas de nouvelle ombre.
 
 ## Shapes
 
-Les boutons et images sont presque rectangulaires, avec les très faibles rayons définis dans le frontmatter. Les tags sont des capsules à contour fin. Le laboratoire et son moteur sont les surfaces les plus arrondies ; les sorties du schéma ont un rayon intermédiaire de 6px. Des flèches diagonales ou verticales en SVG accompagnent les liens. Les liens circulaires, orbites et croix créent la continuité géométrique avec la sculpture.
+Les boutons et images sont presque rectangulaires, avec les très faibles rayons définis dans le frontmatter. Les tags sont des capsules à contour fin. Le laboratoire et son moteur sont les surfaces les plus arrondies ; les sorties du schéma ont un rayon intermédiaire de 6px. Des flèches diagonales ou verticales en SVG accompagnent les liens. Les liens circulaires et les commandes fléchées de la galerie prolongent cette géométrie simple.
 
 ## Components
 
@@ -221,6 +227,10 @@ Les tags d’outils sont des éléments d’information, en capsules à contour 
 
 Les projets principaux sont des articles ouverts, sans cadre de carte : aperçu, catégorie et numéro, titre, description, puis disciplines. Les captures utilisent `object-fit: contain` sur un fond encre ; le rapport du cadre devient 2:1 sur petit écran. Le laboratoire constitue une véritable surface encadrée, sombre sur fond végétal, avec en-tête, scénarios, schéma et légende de démonstration.
 
+Le portrait d’accueil est une figure légendée : photo complète au rapport 4:5, coins de 3px, puis nom et rôle. Sa largeur est bornée par `min(100%, 400px, 49.6svh)` sur grand écran, passe à 90% à 800px ou moins, puis à `min(76vw, 280px)` à 560px ou moins. À cette dernière taille, la figure passe avant le texte et les actions. La photo est prioritaire au chargement.
+
+Chaque site métier est un article ouvert sur papier : image complète cliquable, titre, catégorie et lien « Explorer le site ». Les titres utilisent une échelle de 24 à 38px, puis 26px sur petit écran. Le compteur est une région de statut annoncée poliment ; les flèches utilisent un fond végétal au survol et une opacité de 0.35 lorsqu’elles sont désactivées.
+
 Les applications mobiles sont deux articles ouverts sur fond encre. Chacun présente un visuel de marque de 720 × 450px au rapport 8:5, contenu sans recadrage et aux coins de 3px, puis la catégorie, le statut, le titre, les usages, trois fonctionnalités et la stack. Ces visuels représentent l’identité de TirTrack et God of Sparta, pas leurs interfaces. Les statuts « Projet privé » et « En développement » prennent la forme de capsules à filet sombre et texte végétal. Les titres vont de 28 à 42px ; la description utilise 14px avec un interligne de 1.8.
 
 Les articles d’applications restent non cliquables. Un lien commun mène à `contact.html?projet=application`, où le script présélectionne « Application web ou mobile ». Aucun lien de téléchargement n’est présenté pour ces projets privés ou en développement. Cette section statique reprend les couleurs, les filets et les liens existants, sans animation dédiée.
@@ -235,19 +245,19 @@ La validation s’appuie sur les attributs HTML. L’envoi affiche un libellé d
 
 En-tête horizontal, marque à gauche et liens courts à droite, séparé du contenu par un filet. Les liens soulignent leur libellé en orange au survol. À 800px et moins, un bouton ouvre un panneau plein écran sous l’en-tête. L’état est porté par `aria-expanded` ; Escape ferme le panneau et rend le focus au bouton. Le bouton et les liens participent au parcours Tab. La navigation mobile dépend du JavaScript.
 
-Les liens, boutons et résumés exposent un focus orange de 3px, décalé de 7px. Chaque page possède un lien d’évitement.
+Les liens, boutons et résumés exposent généralement un focus orange de 3px, décalé de 7px. Dans la galerie des sites métiers sur papier, la région, les flèches et les liens utilisent un contour encre pour conserver un contraste lisible ; le contour de l’image est décalé de 3px vers l’extérieur sur le papier, avec 8px de marge horizontale pour rester visible. Chaque page possède un lien d’évitement.
 
 ### Lignes d’expertises
 
 Éléments natifs `details/summary` séparés par des filets. Un signe plus devient un trait à l’ouverture et le titre passe à l’orange. Le contenu développé réunit une description et des tags. Le comportement fonctionne sans script.
 
-### Mouvement et sculpture
+### Mouvement
 
-L’entrée du titre dure 1.1s avec un décalage de 0.13s entre lignes ; la sculpture entre en 1.8s. Les deux utilisent `expo.out`. La sculpture paramétrique est un canvas 2D décoratif ; son rendu se limite à environ 30 images/s, avec un ratio de pixels plafonné à 1.75. Sa boucle s’arrête hors viewport ou lorsque l’onglet est masqué. Le pointeur de souris modifie doucement son orientation ; le scroll ajoute une petite rotation et translation. Le portrait se déplace légèrement au scroll.
+L’entrée du titre dure 1.1s avec un décalage de 0.13s entre lignes ; le portrait d’accueil entre sur la même durée avec une translation verticale de 18px. Les deux utilisent `expo.out`. Le portrait de la section à propos conserve un léger déplacement au scroll. La galerie des sites métiers se déplace uniquement à l’initiative du visiteur.
 
 Le bandeau typographique se répète sur 35s et les particules du schéma sur 2.8s. Le changement de scénario met à jour le texte immédiatement, avec une transition des nœuds de 0.5s lorsque les animations sont actives.
 
-La préférence système `prefers-reduced-motion` et le bouton de pied de page désactivent les animations, les effets GSAP et le mouvement du canvas, réduisent les transitions et désactivent le scroll fluide. Le choix manuel est conservé dans `localStorage`. Une préférence système active ne peut pas être annulée par le bouton. La sculpture reste visible sous forme fixe et les scénarios restent utilisables. Les animations CSS ne disposent pas d’un gestionnaire explicite de visibilité d’onglet ; l’arrêt explicite concerne le canvas.
+La préférence système `prefers-reduced-motion` et le bouton de pied de page désactivent les animations et les effets GSAP, réduisent les transitions et désactivent le scroll fluide. Le choix manuel est conservé dans `localStorage`. Une préférence système active ne peut pas être annulée par le bouton. Les portraits restent visibles, les scénarios restent utilisables et les commandes des sites métiers défilent instantanément.
 
 ## Do's and Don'ts
 

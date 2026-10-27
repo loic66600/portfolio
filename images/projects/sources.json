@@ -8,5 +8,6 @@
     "god-of-sparta.webp": "Copied unchanged on 2026-10-27 from the owner's local LORN Digital Studio: apps/hub/public/images/projects/god-of-sparta.webp; display authorized by the owner"
   },
   "existingPortrait": "images/moi1.png, supplied in original repository",
-  "templateImages": "images/templates/*.webp, supplied in workspace; included explicitly in redesign"
+  "templateImages": "images/templates/{barbershop,restaurant,electricien,fastfood,peintre}.webp, supplied in workspace; displayed uncropped. Fastfood and peintre added to the gallery on 2026-10-27.",
+  "socialCover": "Screenshot of the local portrait-led homepage on 2026-10-27, images/social-cover.jpg"
 }

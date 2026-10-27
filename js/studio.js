@@ -8,7 +8,6 @@
   const reduced = () => media.matches || userReduced;
   let motionContext;
   let horizontal;
-  let sculpture;
 
   // The native scroll and cursor remain available throughout the experience.
   const menu = $('.menu-toggle');
@@ -52,6 +51,48 @@
     if (!reduced() && window.gsap) gsap.fromTo('.flow-node', { y: 7 }, { y: 0, duration: .5, stagger: .08, ease: 'power3.out', clearProps: 'transform' });
   }));
 
+  // Native horizontal scrolling stays usable with touch, keyboard or without JS.
+  const tradeWindow = $('.trade-window');
+  if (tradeWindow) {
+    const cards = $$('.trade-project', tradeWindow);
+    const controls = $('.trade-controls');
+    const previous = $('.trade-prev');
+    const next = $('.trade-next');
+    const position = $('.trade-position');
+    let active = 0;
+    let frame = 0;
+    const offset = index => cards[index].offsetLeft - cards[0].offsetLeft;
+    function syncGallery() {
+      frame = 0;
+      active = cards.reduce((nearest, card, index) => Math.abs(offset(index) - tradeWindow.scrollLeft) < Math.abs(offset(nearest) - tradeWindow.scrollLeft) ? index : nearest, 0);
+      previous.disabled = active === 0;
+      next.disabled = active === cards.length - 1;
+      const label = (active + 1) + ' / ' + cards.length;
+      if (position.textContent !== label) position.textContent = label;
+    }
+    function moveGallery(direction) {
+      const target = Math.max(0, Math.min(cards.length - 1, active + direction));
+      tradeWindow.scrollTo({ left: offset(target), behavior: reduced() ? 'instant' : 'smooth' });
+    }
+    controls.hidden = false;
+    previous.addEventListener('click', () => moveGallery(-1));
+    next.addEventListener('click', () => moveGallery(1));
+    tradeWindow.addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(syncGallery); }, { passive: true });
+    tradeWindow.addEventListener('keydown', event => {
+      if (event.target !== tradeWindow || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+      event.preventDefault();
+      moveGallery(event.key === 'ArrowRight' ? 1 : -1);
+    });
+    let galleryWidth = tradeWindow.clientWidth;
+    new ResizeObserver(() => {
+      if (tradeWindow.clientWidth === galleryWidth) return;
+      galleryWidth = tradeWindow.clientWidth;
+      tradeWindow.scrollTo({ left: offset(active), behavior: 'instant' });
+      syncGallery();
+    }).observe(tradeWindow);
+    syncGallery();
+  }
+
   function buildMotion(entrance = false) {
     motionContext?.revert();
     horizontal = null;
@@ -62,17 +103,15 @@
       button.textContent = media.matches ? 'Animations réduites (système)' : isReduced ? 'Activer les animations' : 'Réduire les animations';
       button.disabled = media.matches;
     });
-    sculpture?.setMotion(!isReduced);
     if (!window.gsap || !window.ScrollTrigger || isReduced) return;
     gsap.registerPlugin(ScrollTrigger);
     motionContext = gsap.matchMedia();
     motionContext.add('all', () => {
       if (entrance && $('.hero-copy')) {
         gsap.from('.hero h1>span', { y: 35, opacity: .65, duration: 1.1, stagger: .13, ease: 'expo.out', clearProps: 'transform,opacity' });
-        gsap.from('.hero-art', { rotation: -12, scale: .9, duration: 1.8, ease: 'expo.out', clearProps: 'transform' });
+        gsap.from('.hero-portrait', { y: 18, duration: 1.1, ease: 'expo.out', clearProps: 'transform' });
       }
       if ($('.portrait-wrap')) gsap.fromTo('.portrait-wrap>img', { y: 14 }, { y: -14, ease: 'none', scrollTrigger: { trigger: '.portrait-wrap', start: 'top bottom', end: 'bottom top', scrub: 1 } });
-      if ($('#sculpture')) gsap.to('#sculpture', { rotation: 12, y: 35, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
     });
     motionContext.add('(min-width: 900px) and (min-height: 560px)', () => {
       const track = $('.work-track');
@@ -134,109 +173,6 @@
   }));
   media.addEventListener('change', () => buildMotion());
 
-  // A parametric torus-knot rendered as a depth-sorted copper wire sculpture.
-  // No external model, video, WebGL context or render service is required.
-  function createSculpture(canvas) {
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return null;
-    let width = 0, height = 0, raf = 0, last = 0, phase = .25;
-    let visible = false, moving = !reduced(), mouseX = 0, mouseY = 0;
-    const rings = [];
-    const ringCount = 150, sections = 50;
-    const center = u => {
-      const radius = 1.5 + .47 * Math.cos(3 * u);
-      return [radius * Math.cos(2 * u), radius * Math.sin(2 * u), .64 * Math.sin(3 * u)];
-    };
-    for (let i = 0; i < ringCount; i++) {
-      const u = i / ringCount * Math.PI * 2;
-      const c = center(u), next = center(u + .001);
-      const tangent = next.map((v, j) => v - c[j]);
-      const length = Math.hypot(...tangent);
-      const t = tangent.map(v => v / length);
-      const n = [Math.cos(2 * u), Math.sin(2 * u), 0];
-      const b = [t[1] * n[2] - t[2] * n[1], t[2] * n[0] - t[0] * n[2], t[0] * n[1] - t[1] * n[0]];
-      const bLength = Math.hypot(...b);
-      for (let j = 0; j < 3; j++) b[j] /= bLength;
-      const points = [];
-      for (let j = 0; j <= sections; j++) {
-        const v = j / sections * Math.PI * 2;
-        points.push(c.map((value, k) => value + .36 * (Math.cos(v) * n[k] + Math.sin(v) * b[k])));
-      }
-      rings.push(points);
-    }
-    function draw() {
-      ctx.clearRect(0, 0, width, height);
-      const ax = .85 + Math.sin(phase * .5) * .14 + mouseY * .12;
-      const ay = phase * .3 + mouseX * .15;
-      const az = -.5;
-      const cx = Math.cos(ax), sx = Math.sin(ax), cy = Math.cos(ay), sy = Math.sin(ay), cz = Math.cos(az), sz = Math.sin(az);
-      const rotate = ([x, y, z]) => {
-        const y1 = y * cx - z * sx, z1 = y * sx + z * cx;
-        const x2 = x * cy + z1 * sy, z2 = -x * sy + z1 * cy;
-        return [x2 * cz - y1 * sz, x2 * sz + y1 * cz, z2];
-      };
-      const scale = Math.min(width, height) * .204;
-      const projected = rings.map(points => {
-        const vertices = points.map(rotate);
-        return { vertices, z: vertices.reduce((sum, v) => sum + v[2], 0) / vertices.length };
-      }).sort((a, b) => a.z - b.z);
-      for (const ring of projected) {
-        const light = Math.max(0, Math.min(1, (ring.z + 2.2) / 4.4));
-        ctx.beginPath();
-        ring.vertices.forEach(([x,y,z], index) => {
-          const perspective = 7 / (7 - z);
-          const px = width * .5 + x * scale * perspective;
-          const py = height * .47 + y * scale * perspective;
-          if (index === 0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
-        });
-        ctx.closePath();
-        ctx.fillStyle = `rgba(23,25,22,${.4 + light * .5})`;
-        ctx.fill();
-        ctx.strokeStyle = `rgb(${Math.round(145 + light * 110)},${Math.round(47 + light * 142)},${Math.round(20 + light * 99)})`;
-        ctx.lineWidth = .65 + light * .75;
-        ctx.stroke();
-      }
-    }
-    function tick(time) {
-      raf = 0;
-      if (!visible || document.hidden || !moving) return;
-      if (time - last > 32) {
-        phase += Math.min(time - last, 50) * .00038;
-        last = time;
-        draw();
-      }
-      raf = requestAnimationFrame(tick);
-    }
-    function sync() {
-      if (raf) cancelAnimationFrame(raf);
-      raf = 0;
-      if (visible && !document.hidden && moving) { last = performance.now(); raf = requestAnimationFrame(tick); }
-      else draw();
-    }
-    function resize() {
-      const bounds = canvas.getBoundingClientRect();
-      width = bounds.width; height = bounds.height;
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.75);
-      canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-      draw();
-    }
-    new ResizeObserver(resize).observe(canvas);
-    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; sync(); }, { threshold: 0 }).observe(canvas);
-    canvas.parentElement.addEventListener('pointermove', event => {
-      if (event.pointerType !== 'mouse' || !moving) return;
-      const bounds = canvas.getBoundingClientRect();
-      mouseX = (event.clientX - bounds.left) / width - .5;
-      mouseY = (event.clientY - bounds.top) / height - .5;
-    });
-    canvas.parentElement.addEventListener('pointerleave', () => { mouseX = mouseY = 0; });
-    document.addEventListener('visibilitychange', sync);
-    window.addEventListener('pagehide', () => { if (raf) cancelAnimationFrame(raf); });
-    window.addEventListener('pageshow', sync);
-    resize();
-    return { setMotion(value) { moving = value; sync(); } };
-  }
-  if ($('#sculpture')) sculpture = createSculpture($('#sculpture'));
   buildMotion(true);
 
   // Keep the existing Web3Forms integration; feedback never claims success before a real response.

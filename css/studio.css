@@ -331,64 +331,6 @@ strong {
 .text-link:hover {
   text-decoration:underline
 }
-.hero-art {
-  position:relative;
-  height:560px;
-  margin-left:-25px;
-  isolation:isolate
-}
-.hero-art canvas {
-  width:100%;
-  height:100%;
-  display:block;
-  position:relative;
-  z-index:2
-}
-.art-orbit {
-  border:1px solid #3b4034;
-  border-radius:50%;
-  position:absolute;
-  width:84%;
-  height:84%;
-  left:8%;
-  top:8%;
-  transform:rotate(-25deg)
-}
-.orbit-two {
-  transform:rotate(30deg) scaleX(.62);
-  border-color:#2e332a
-}
-.art-caption {
-  position:absolute;
-  bottom:8px;
-  left:18%;
-  right:0;
-  z-index:3;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-  font-size:9px;
-  letter-spacing:.1em;
-  color:var(--muted)
-}
-.art-caption span:last-child {
-  font-size:11px;
-  letter-spacing:0;
-  color:var(--paper)
-}
-.art-cross {
-  position:absolute;
-  font-size:25px;
-  color:var(--muted)
-}
-.cross-one {
-  right:4%;
-  top:12%
-}
-.cross-two {
-  left:5%;
-  bottom:18%
-}
 .hero-bottom {
   display:flex;
   justify-content:space-between;
@@ -973,42 +915,6 @@ details[open]>summary .plus-icon:after {
 .more-work .section-intro {
   color:#5b6055
 }
-.more-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px
-}
-.small-project>img {
-  width:100%;
-  aspect-ratio:1.35;
-  object-fit:cover;
-  object-position:top;
-  border-radius:3px;
-  transition:filter .3s
-}
-.small-project:hover>img {
-  filter:brightness(.87)
-}
-.small-project>div {
-  position:relative;
-  padding:20px 35px 10px 0
-}
-.small-project h3 {
-  font-size:23px
-}
-.small-project span {
-  font-size:10px;
-  color:#5b6055;
-  display:block;
-  margin-top:6px
-}
-.small-project svg {
-  position:absolute;
-  right:0;
-  top:20px;
-  width:20px;
-  height:20px
-}
 .archive {
   margin-top:45px;
   border-top:1px solid var(--paper-line);
@@ -1492,9 +1398,6 @@ details[open]>summary .plus-icon:after {
   .hero-main {
     min-height:700px
   }
-  .hero-art {
-    height:640px
-  }
   .site-header {
     height:110px
   }
@@ -1509,9 +1412,6 @@ details[open]>summary .plus-icon:after {
   }
   .hero-main {
     min-height:550px
-  }
-  .hero-art {
-    height:460px
   }
   .hero-copy>p {
     font-size:13px
@@ -1578,9 +1478,6 @@ details[open]>summary .plus-icon:after {
   }
   .ventures {
     padding-top:0
-  }
-  .small-project h3 {
-    font-size:20px
   }
 }
 
@@ -1658,10 +1555,6 @@ details[open]>summary .plus-icon:after {
   .hero h1 {
     font-size:clamp(50px,7.2vw,66px)
   }
-  .hero-art {
-    height:380px;
-    margin:30px -55px 0 -60px
-  }
   .hero-copy>p {
     font-size:12px
   }
@@ -1675,14 +1568,6 @@ details[open]>summary .plus-icon:after {
     align-items:flex-start;
     flex-direction:column;
     gap:9px
-  }
-  .art-caption {
-    left:24%;
-    bottom:-15px;
-    font-size:7px
-  }
-  .art-caption span:last-child {
-    font-size:9px
   }
   .hero-bottom {
     font-size:8px
@@ -1767,15 +1652,6 @@ details[open]>summary .plus-icon:after {
   }
   .lab-footer {
     font-size:8px
-  }
-  .more-grid {
-    gap:20px
-  }
-  .small-project h3 {
-    font-size:18px
-  }
-  .small-project span {
-    font-size:9px
   }
   .about-section {
     gap:6%;
@@ -1910,32 +1786,6 @@ details[open]>summary .plus-icon:after {
   .hero-actions .text-link {
     font-size:10px;
     gap:8px
-  }
-  .hero-art {
-    height:345px;
-    margin:-5px -12px 25px;
-    max-width:440px
-  }
-  .art-caption {
-    left:19%;
-    bottom:2px;
-    font-size:7px
-  }
-  .art-caption span:last-child {
-    font-size:9px
-  }
-  .art-orbit {
-    width:74%;
-    height:84%;
-    left:13%
-  }
-  .cross-one {
-    right:12%;
-    top:12%
-  }
-  .cross-two {
-    left:12%;
-    bottom:18%
   }
   .hero-bottom {
     padding:18px 0;
@@ -2141,22 +1991,6 @@ details[open]>summary .plus-icon:after {
   .lab-footer {
     font-size:6px;
     gap:8px
-  }
-  .more-grid {
-    grid-template-columns:1fr;
-    gap:30px
-  }
-  .small-project>img {
-    aspect-ratio:1.65
-  }
-  .small-project h3 {
-    font-size:24px
-  }
-  .small-project>div {
-    padding-top:16px
-  }
-  .small-project span {
-    font-size:10px
   }
   .archive {
     margin-top:32px
@@ -2365,9 +2199,6 @@ details[open]>summary .plus-icon:after {
   .hero-actions {
     margin-top:23px
   }
-  .hero-art {
-    height:430px
-  }
   .hero-bottom {
     padding:16px 0
   }
@@ -2437,3 +2268,92 @@ html.motion-reduced { scroll-behavior: auto; }
 .motion-reduced *, .motion-reduced *::before, .motion-reduced *::after { transition-duration: .01ms !important; }
 a.circle-link { min-width: 44px; min-height: 44px; }
 .scenario-controls button { min-height: 44px; }
+
+/* The person leads the portfolio; the portrait is shown without cropping. */
+.hero-portrait {
+  width:min(100%,400px,49.6svh);
+  justify-self:center;
+  margin:0;
+}
+.hero-portrait img {
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:4 / 5;
+  object-fit:contain;
+  border-radius:3px;
+}
+.hero-portrait figcaption {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  padding:16px 0 0;
+}
+.hero-portrait strong { font:500 18px/1.2 var(--display); }
+.hero-portrait figcaption span { color:var(--muted); font-size:10px; line-height:1.7; }
+.trade-toolbar {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  margin-bottom:22px;
+  font-size:12px;
+  color:#5b6055;
+}
+.trade-controls { display:flex; align-items:center; gap:20px; }
+.trade-controls[hidden] { display:none; }
+.trade-controls button {
+  display:grid;
+  place-items:center;
+  flex-shrink:0;
+  width:48px;
+  height:48px;
+  border:1px solid #a2a791;
+  border-radius:50%;
+  background:transparent;
+  color:var(--ink);
+  transition:background .2s;
+}
+.trade-controls button:hover:not(:disabled) { background:var(--lime); }
+.trade-controls button:disabled { opacity:.35; cursor:default; }
+.trade-controls svg { width:20px; height:20px; }
+.trade-position { min-width:40px; text-align:center; font-variant-numeric:tabular-nums; color:var(--ink); }
+.trade-window {
+  overflow-x:auto;
+  overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  overscroll-behavior-x:contain;
+  scrollbar-width:thin;
+  scrollbar-color:var(--ink) var(--paper-line);
+  padding:8px 0 18px;
+}
+.trade-window:focus-visible { outline:3px solid var(--ink); outline-offset:7px; }
+.more-work .trade-controls button:focus-visible,
+.trade-project a:focus-visible { outline-color:var(--ink); }
+.trade-track { position:relative; display:flex; gap:28px; }
+.trade-project { flex:0 0 100%; min-width:0; scroll-snap-align:start; }
+.trade-visual { display:block; margin:0 8px; background:#e7e7dd; border-radius:3px; }
+.trade-visual img { display:block; width:100%; height:auto; object-fit:contain; border-radius:3px; }
+.trade-visual:focus-visible { outline-offset:3px; }
+.trade-caption { display:flex; justify-content:space-between; align-items:center; gap:24px; padding:24px 8px 8px; }
+.trade-caption h3 { font-size:clamp(24px,2.6vw,38px); }
+.trade-caption p { color:#5b6055; font-size:12px; margin-top:8px; }
+.trade-caption .text-link { flex-shrink:0; }
+@media(max-width:800px) {
+  .hero-portrait { width:90%; margin:16px 0 0; }
+  .hero-portrait figcaption { align-items:flex-start; flex-direction:column; gap:7px; }
+}
+@media(max-width:560px) {
+  .hero-main { display:flex; flex-direction:column; gap:30px; padding:30px 0; }
+  .hero-portrait { order:-1; width:min(76vw,280px); margin:0 auto; }
+  .hero-portrait figcaption { flex-direction:row; align-items:center; }
+  .hero-portrait strong { font-size:16px; }
+  .hero-portrait figcaption span { font-size:9px; }
+  .trade-toolbar { align-items:flex-start; flex-direction:column; gap:14px; font-size:11px; }
+  .trade-controls { width:100%; justify-content:space-between; }
+  .trade-track { gap:22px; }
+  .trade-caption { align-items:flex-start; flex-direction:column; gap:10px; padding:20px 4px 4px; }
+  .trade-caption h3 { font-size:26px; }
+  .trade-caption p { font-size:11px; }
+}
