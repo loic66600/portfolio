@@ -177,14 +177,14 @@ Les rampes OKLCH du sidecar sont des échantillons synthétisés pour la prévis
 
 Les sections occupent la largeur disponible avec une gouttière fluide commune. Seul le conteneur d’accueil possède une largeur maximale de 1760px ; le site n’a pas de conteneur global de 1600px. L’espacement vertical courant suit les trois valeurs `spacing.section*`, avec des exceptions de composition pour la galerie, le bandeau de contact et les projets du studio.
 
-L’accueil utilise deux colonnes (1.1fr / 1fr), avec le titre et les actions à gauche, le portrait légendé à droite. Les applications mobiles occupent deux colonnes égales, séparées par un espace fluide de 28 à 80px ; le second article est décalé de 80px vers le bas. Les expertises sont des lignes ; l’atelier et la section à propos alternent texte et élément visuel. Les cinq sites métiers occupent une galerie horizontale présentant un site à la fois. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
+L’accueil utilise deux colonnes (1.1fr / 1fr), avec le titre et les actions à gauche, la photo d’origine de dos légendée à droite. Les applications mobiles occupent deux colonnes égales, séparées par un espace fluide de 28 à 80px ; le second article est décalé de 80px vers le bas. Les expertises sont des lignes ; l’atelier et la section à propos alternent texte et élément visuel. Les cinq sites métiers forment une liste verticale par défaut, enrichie d’un chapitre horizontal au scroll sur grand écran lorsque les animations sont actives. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
 
 ### Responsive
 
 - **Au-dessus de 1600px** : accueil plus haut, en-tête de 110px.
 - **À 1100px et moins** : rythme vertical réduit, navigation et grilles plus compactes.
 - **À 800px et moins** : navigation repliée, applications et atelier sur une colonne, formulaire avant les coordonnées ; l’accueil conserve deux colonnes. Les articles d’applications perdent leur décalage et sont séparés de 52px ; leur appel au contact s’empile également.
-- **À 560px et moins** : accueil, galerie principale, section à propos, projets du studio, formulaire et parcours passent en pile verticale. Le portrait d’accueil précède visuellement le texte. La galerie des sites métiers conserve son défilement horizontal ; sa barre de commande et ses légendes s’empilent.
+- **À 560px et moins** : accueil, galerie principale, section à propos, projets du studio, formulaire et parcours passent en pile verticale. Le portrait d’accueil précède visuellement le texte. Les cinq sites métiers restent en liste verticale, avec leurs légendes empilées et sans barre de progression.
 - **Écrans larges et peu hauts** : à partir de 900px de largeur et jusqu’à 800px de hauteur, l’accueil et la galerie se compactent selon la hauteur disponible.
 
 ### Galerie principale au scroll
@@ -197,9 +197,13 @@ En mode réduit ou sans les bibliothèques d’animation, la galerie revient au 
 
 ### Galerie des sites métiers
 
-La seconde galerie reste horizontale à toutes les tailles, avec un article occupant toute la largeur de sa fenêtre. Elle présente cinq templates : Black & Gold, Le Comptoir Catalan, Éclair Elec 66, Street Fusion et Dupont Peinture. La rangée utilise le débordement natif et l’aimantation au début de chaque article, avec un écart de 28px, réduit à 22px sur petit écran. Les images gardent leur hauteur naturelle et utilisent `object-fit: contain` : l’aperçu complet reste visible, sans cadre qui le recadre.
+La seconde galerie présente cinq templates : Black & Gold, Le Comptoir Catalan, Éclair Elec 66, Street Fusion et Dupont Peinture. Sa base CSS est une grille verticale à une colonne, espacée de 72px puis de 48px à 560px ou moins. Les images gardent leur hauteur naturelle et utilisent `object-fit: contain` pour conserver l’aperçu complet.
 
-Des boutons circulaires de 48px et un compteur « 1 / 5 » accompagnent le défilement. La région est accessible au focus ; les touches ArrowLeft et ArrowRight changent de site seulement lorsque cette région elle-même possède le focus. Le toucher, le pavé tactile et la barre de défilement restent natifs. Les boutons et le compteur sont activés par JavaScript ; sans script, les sites restent accessibles par le débordement horizontal. Il n’y a ni lecture automatique ni boucle : les commandes sont désactivées aux extrémités. Le défilement commandé est fluide, ou instantané en mode réduit.
+À partir de 900px de largeur et de 560px de hauteur, avec JavaScript, GSAP et ScrollTrigger disponibles et les animations actives, cette galerie partage la fonction `horizontalChapter` des portfolios. Le panneau natif sticky occupe 100svh ; le scroll vertical déplace la rangée de sites, espacés de 28px et occupant chacun la largeur disponible. L’image s’inscrit entièrement dans l’espace restant au-dessus de sa légende. Le retour en arrière suit le même mouvement, sans interception de la molette ou du toucher.
+
+La barre d’accompagnement affiche une instruction de scroll, une progression et un compteur de 1 / 5 à 5 / 5. Ces deux indicateurs sont passifs et `aria-hidden`. Il n’y a pas de flèches de commande, de navigation ArrowLeft/ArrowRight dédiée, ni de `tabindex` sur la région. Le focus sur le lien d’un site repositionne instantanément le document pour rendre ce site visible. Les dimensions sont recalculées au redimensionnement et après le chargement des fontes.
+
+En dehors de ces conditions, notamment sur mobile, en mouvement réduit ou sans JavaScript, les cinq articles restent en liste verticale et la barre d’accompagnement est masquée. Le passage au mode réduit retire la hauteur et la translation ajoutées par le script, réinitialise le défilement interne et détache les écouteurs du chapitre.
 
 ## Elevation & Depth
 
@@ -209,7 +213,7 @@ Les composants n’utilisent pas d’ombres CSS. Les aplats, les filets et les c
 
 ## Shapes
 
-Les boutons et images sont presque rectangulaires, avec les très faibles rayons définis dans le frontmatter. Les tags sont des capsules à contour fin. Le laboratoire et son moteur sont les surfaces les plus arrondies ; les sorties du schéma ont un rayon intermédiaire de 6px. Des flèches diagonales ou verticales en SVG accompagnent les liens. Les liens circulaires et les commandes fléchées de la galerie prolongent cette géométrie simple.
+Les boutons et images sont presque rectangulaires, avec les très faibles rayons définis dans le frontmatter. Les tags sont des capsules à contour fin. Le laboratoire et son moteur sont les surfaces les plus arrondies ; les sorties du schéma ont un rayon intermédiaire de 6px. Des flèches diagonales ou verticales en SVG accompagnent les liens. Les liens circulaires prolongent cette géométrie simple.
 
 ## Components
 
@@ -227,9 +231,9 @@ Les tags d’outils sont des éléments d’information, en capsules à contour 
 
 Les projets principaux sont des articles ouverts, sans cadre de carte : aperçu, catégorie et numéro, titre, description, puis disciplines. Les captures utilisent `object-fit: contain` sur un fond encre ; le rapport du cadre devient 2:1 sur petit écran. Le laboratoire constitue une véritable surface encadrée, sombre sur fond végétal, avec en-tête, scénarios, schéma et légende de démonstration.
 
-Le portrait d’accueil est une figure légendée : photo complète au rapport 4:5, coins de 3px, puis nom et rôle. Sa largeur est bornée par `min(100%, 400px, 49.6svh)` sur grand écran, passe à 90% à 800px ou moins, puis à `min(76vw, 280px)` à 560px ou moins. À cette dernière taille, la figure passe avant le texte et les actions. La photo est prioritaire au chargement.
+Le portrait d’accueil est une figure légendée utilisant `images/man4.jpg` (690 × 1391), la photo d’origine de Loïc de dos et vêtu de noir. L’image entière s’inscrit avec `object-fit: contain` dans le cadre CSS 4:5 existant, aux coins de 3px ; le rapport 4:5 décrit le cadre, pas le fichier source. Le nom et le rôle suivent l’image. La largeur de la figure est bornée par `min(100%, 400px, 49.6svh)` sur grand écran, passe à 90% à 800px ou moins, puis à `min(76vw, 280px)` à 560px ou moins. À cette dernière taille, la figure passe avant le texte et les actions. La photo est prioritaire au chargement. Le portrait de face `images/loic-rossignol.jpg` reste dans la section à propos. La source de la photo de dos a été inspectée ; son nouveau rendu dans l’accueil reste à vérifier.
 
-Chaque site métier est un article ouvert sur papier : image complète cliquable, titre, catégorie et lien « Explorer le site ». Les titres utilisent une échelle de 24 à 38px, puis 26px sur petit écran. Le compteur est une région de statut annoncée poliment ; les flèches utilisent un fond végétal au survol et une opacité de 0.35 lorsqu’elles sont désactivées.
+Chaque site métier est un article ouvert sur papier : image complète cliquable, titre, catégorie et lien « Explorer le site ». Les titres utilisent une échelle de 24 à 38px, puis 26px sur petit écran. La progression et le compteur servent de repères visuels dans le chapitre horizontal ; ils ne sont ni des commandes ni une région de statut annoncée.
 
 Les applications mobiles sont deux articles ouverts sur fond encre. Chacun présente un visuel de marque de 720 × 450px au rapport 8:5, contenu sans recadrage et aux coins de 3px, puis la catégorie, le statut, le titre, les usages, trois fonctionnalités et la stack. Ces visuels représentent l’identité de TirTrack et God of Sparta, pas leurs interfaces. Les statuts « Projet privé » et « En développement » prennent la forme de capsules à filet sombre et texte végétal. Les titres vont de 28 à 42px ; la description utilise 14px avec un interligne de 1.8.
 
@@ -245,7 +249,7 @@ La validation s’appuie sur les attributs HTML. L’envoi affiche un libellé d
 
 En-tête horizontal, marque à gauche et liens courts à droite, séparé du contenu par un filet. Les liens soulignent leur libellé en orange au survol. À 800px et moins, un bouton ouvre un panneau plein écran sous l’en-tête. L’état est porté par `aria-expanded` ; Escape ferme le panneau et rend le focus au bouton. Le bouton et les liens participent au parcours Tab. La navigation mobile dépend du JavaScript.
 
-Les liens, boutons et résumés exposent généralement un focus orange de 3px, décalé de 7px. Dans la galerie des sites métiers sur papier, la région, les flèches et les liens utilisent un contour encre pour conserver un contraste lisible ; le contour de l’image est décalé de 3px vers l’extérieur sur le papier, avec 8px de marge horizontale pour rester visible. Chaque page possède un lien d’évitement.
+Les liens, boutons et résumés exposent généralement un focus orange de 3px, décalé de 7px. Dans la galerie des sites métiers sur papier, les liens utilisent un contour encre pour conserver un contraste lisible ; le contour de l’image est décalé de 3px vers l’extérieur sur le papier, avec 8px de marge horizontale pour rester visible. La région n’ajoute pas d’arrêt de tabulation. Chaque page possède un lien d’évitement.
 
 ### Lignes d’expertises
 
@@ -253,11 +257,11 @@ Les liens, boutons et résumés exposent généralement un focus orange de 3px, 
 
 ### Mouvement
 
-L’entrée du titre dure 1.1s avec un décalage de 0.13s entre lignes ; le portrait d’accueil entre sur la même durée avec une translation verticale de 18px. Les deux utilisent `expo.out`. Le portrait de la section à propos conserve un léger déplacement au scroll. La galerie des sites métiers se déplace uniquement à l’initiative du visiteur.
+L’entrée du titre dure 1.1s avec un décalage de 0.13s entre lignes ; le portrait d’accueil entre sur la même durée avec une translation verticale de 18px. Les deux utilisent `expo.out`. Le portrait de la section à propos conserve un léger déplacement au scroll. Les galeries des portfolios et des sites métiers partagent le même déplacement horizontal piloté par le scroll vertical, sans lecture automatique temporisée.
 
 Le bandeau typographique se répète sur 35s et les particules du schéma sur 2.8s. Le changement de scénario met à jour le texte immédiatement, avec une transition des nœuds de 0.5s lorsque les animations sont actives.
 
-La préférence système `prefers-reduced-motion` et le bouton de pied de page désactivent les animations et les effets GSAP, réduisent les transitions et désactivent le scroll fluide. Le choix manuel est conservé dans `localStorage`. Une préférence système active ne peut pas être annulée par le bouton. Les portraits restent visibles, les scénarios restent utilisables et les commandes des sites métiers défilent instantanément.
+La préférence système `prefers-reduced-motion` et le bouton de pied de page désactivent les animations et les effets GSAP, réduisent les transitions et désactivent le scroll fluide. Le choix manuel est conservé dans `localStorage`. Une préférence système active ne peut pas être annulée par le bouton. Les portraits restent visibles, les scénarios restent utilisables et les sites métiers reviennent à leur liste verticale sans hauteur ni translation résiduelle du chapitre horizontal.
 
 ## Do's and Don'ts
 

@@ -2293,46 +2293,23 @@ a.circle-link { min-width: 44px; min-height: 44px; }
 .hero-portrait strong { font:500 18px/1.2 var(--display); }
 .hero-portrait figcaption span { color:var(--muted); font-size:10px; line-height:1.7; }
 .trade-toolbar {
-  display:flex;
+  display:none;
   justify-content:space-between;
   align-items:center;
   gap:24px;
-  margin-bottom:22px;
+  margin-bottom:16px;
   font-size:12px;
   color:#5b6055;
 }
-.trade-controls { display:flex; align-items:center; gap:20px; }
-.trade-controls[hidden] { display:none; }
-.trade-controls button {
-  display:grid;
-  place-items:center;
-  flex-shrink:0;
-  width:48px;
-  height:48px;
-  border:1px solid #a2a791;
-  border-radius:50%;
-  background:transparent;
-  color:var(--ink);
-  transition:background .2s;
-}
-.trade-controls button:hover:not(:disabled) { background:var(--lime); }
-.trade-controls button:disabled { opacity:.35; cursor:default; }
-.trade-controls svg { width:20px; height:20px; }
+.trade-progress { flex:1; height:2px; background:var(--paper-line); }
+.trade-progress>span { display:block; height:100%; background:var(--ink); transform:scaleX(.1); transform-origin:left; }
 .trade-position { min-width:40px; text-align:center; font-variant-numeric:tabular-nums; color:var(--ink); }
 .trade-window {
-  overflow-x:auto;
-  overflow-y:hidden;
-  scroll-snap-type:x mandatory;
-  overscroll-behavior-x:contain;
-  scrollbar-width:thin;
-  scrollbar-color:var(--ink) var(--paper-line);
   padding:8px 0 18px;
 }
-.trade-window:focus-visible { outline:3px solid var(--ink); outline-offset:7px; }
-.more-work .trade-controls button:focus-visible,
 .trade-project a:focus-visible { outline-color:var(--ink); }
-.trade-track { position:relative; display:flex; gap:28px; }
-.trade-project { flex:0 0 100%; min-width:0; scroll-snap-align:start; }
+.trade-track { position:relative; display:grid; gap:72px; }
+.trade-project { min-width:0; }
 .trade-visual { display:block; margin:0 8px; background:#e7e7dd; border-radius:3px; }
 .trade-visual img { display:block; width:100%; height:auto; object-fit:contain; border-radius:3px; }
 .trade-visual:focus-visible { outline-offset:3px; }
@@ -2340,6 +2317,25 @@ a.circle-link { min-width: 44px; min-height: 44px; }
 .trade-caption h3 { font-size:clamp(24px,2.6vw,38px); }
 .trade-caption p { color:#5b6055; font-size:12px; margin-top:8px; }
 .trade-caption .text-link { flex-shrink:0; }
+/* A full-screen chapter driven by the same native page scroll as the portfolios. */
+.trade-scroll.is-horizontal { overflow:clip; }
+.is-horizontal .trade-pin {
+  position:sticky;
+  top:0;
+  height:100svh;
+  padding:28px 0 20px;
+  display:flex;
+  flex-direction:column;
+}
+.is-horizontal .trade-pin>.section-heading { flex-shrink:0; margin-bottom:24px; }
+.is-horizontal .trade-pin h2 { font-size:clamp(34px,6svh,66px); }
+.is-horizontal .trade-toolbar { display:flex; flex-shrink:0; }
+.is-horizontal .trade-window { flex:1; min-height:0; overflow:hidden; }
+.is-horizontal .trade-track { display:flex; gap:28px; height:100%; will-change:transform; }
+.is-horizontal .trade-project { flex:0 0 100%; display:flex; flex-direction:column; height:100%; }
+.is-horizontal .trade-visual { flex:1; min-height:0; }
+.is-horizontal .trade-visual img { height:100%; }
+.is-horizontal .trade-caption { flex-shrink:0; padding-top:20px; }
 @media(max-width:800px) {
   .hero-portrait { width:90%; margin:16px 0 0; }
   .hero-portrait figcaption { align-items:flex-start; flex-direction:column; gap:7px; }
@@ -2350,9 +2346,7 @@ a.circle-link { min-width: 44px; min-height: 44px; }
   .hero-portrait figcaption { flex-direction:row; align-items:center; }
   .hero-portrait strong { font-size:16px; }
   .hero-portrait figcaption span { font-size:9px; }
-  .trade-toolbar { align-items:flex-start; flex-direction:column; gap:14px; font-size:11px; }
-  .trade-controls { width:100%; justify-content:space-between; }
-  .trade-track { gap:22px; }
+  .trade-track { gap:48px; }
   .trade-caption { align-items:flex-start; flex-direction:column; gap:10px; padding:20px 4px 4px; }
   .trade-caption h3 { font-size:26px; }
   .trade-caption p { font-size:11px; }

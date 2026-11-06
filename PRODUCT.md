@@ -20,13 +20,13 @@ La refonte reste sur la branche locale `feat/portfolio-lorn-redesign`. L’utili
 
 Loïc Rossignol, Perpignan / Occitanie. LORN DIGITAL STUDIO. Langue française. Identité moderne et démonstrative, scroll vertical et horizontal, motion design.
 
-Le dernier retour du propriétaire place sa photo complète dès l’accueil, accompagnée de son nom et de son rôle. Les aperçus de sites doivent être visibles en entier et plusieurs sites métiers doivent pouvoir être parcourus par défilement.
+Le dernier retour du propriétaire rétablit sa photo d’origine, de dos et vêtu de noir, dès l’accueil, accompagnée de son nom et de son rôle. Les aperçus de sites doivent rester visibles en entier. Sur grand écran avec les animations actives, les sites métiers suivent le même défilement horizontal piloté par le scroll vertical que les portfolios ; sur mobile ou en mode réduit, ils forment une liste verticale.
 
 ## Evidence on Hand
 
 Portrait images/moi1.png. Réalisations Talyana Rossignol, VORTEX, Noah Laurent. Les README de VORTEX et Noah indiquent des démonstrations : ne pas reprendre leurs clients ou témoignages fictifs comme preuves commerciales. Expériences RedwoodPaddle et PWR-Foil documentées dans le site original. Site LORN : https://lorn-digital-studio.fr/.
 
-La photo utilisée dans l’accueil est `images/loic-rossignol.jpg`. Les cinq sites métiers présentés sont des templates : Black & Gold (barbershop), Le Comptoir Catalan (restaurant), Éclair Elec 66 (électricien), Street Fusion (restauration rapide) et Dupont Peinture (peintre). Leurs aperçus proviennent de `images/templates/` et gardent leur cadrage complet.
+La photo d’accueil est `images/man4.jpg` (690 × 1391), image d’origine retrouvée dans `main:index.html` : Loïc de dos, vêtu de noir, le visage tourné de profil. Elle est affichée sans recadrage. Le portrait de face `images/loic-rossignol.jpg` reste dans la section à propos. Les cinq sites métiers présentés sont des templates : Black & Gold (barbershop), Le Comptoir Catalan (restaurant), Éclair Elec 66 (électricien), Street Fusion (restauration rapide) et Dupont Peinture (peintre). Leurs aperçus proviennent de `images/templates/` et gardent leur cadrage complet.
 
 Ajout confirmé le 27 octobre 2026 à la demande du propriétaire : TirTrack, carnet de tir sportif privé utilisable hors ligne et sans compte, avec suivi des séances, statistiques et export PDF ; God of Sparta, application de musculation et de calisthénie en développement, avec séances sur mesure, minuteur de repos et records personnels. Les deux projets utilisent React Native et Expo ; TirTrack est présenté pour Android, God of Sparta avec SQLite.
 

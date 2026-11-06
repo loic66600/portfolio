@@ -7,7 +7,6 @@
   try { userReduced = localStorage.getItem('lorn-reduced-motion') === 'true'; } catch { /* Storage may be unavailable. */ }
   const reduced = () => media.matches || userReduced;
   let motionContext;
-  let horizontal;
 
   // The native scroll and cursor remain available throughout the experience.
   const menu = $('.menu-toggle');
@@ -51,51 +50,69 @@
     if (!reduced() && window.gsap) gsap.fromTo('.flow-node', { y: 7 }, { y: 0, duration: .5, stagger: .08, ease: 'power3.out', clearProps: 'transform' });
   }));
 
-  // Native horizontal scrolling stays usable with touch, keyboard or without JS.
-  const tradeWindow = $('.trade-window');
-  if (tradeWindow) {
-    const cards = $$('.trade-project', tradeWindow);
-    const controls = $('.trade-controls');
-    const previous = $('.trade-prev');
-    const next = $('.trade-next');
-    const position = $('.trade-position');
-    let active = 0;
-    let frame = 0;
-    const offset = index => cards[index].offsetLeft - cards[0].offsetLeft;
-    function syncGallery() {
-      frame = 0;
-      active = cards.reduce((nearest, card, index) => Math.abs(offset(index) - tradeWindow.scrollLeft) < Math.abs(offset(nearest) - tradeWindow.scrollLeft) ? index : nearest, 0);
-      previous.disabled = active === 0;
-      next.disabled = active === cards.length - 1;
-      const label = (active + 1) + ' / ' + cards.length;
-      if (position.textContent !== label) position.textContent = label;
-    }
-    function moveGallery(direction) {
-      const target = Math.max(0, Math.min(cards.length - 1, active + direction));
-      tradeWindow.scrollTo({ left: offset(target), behavior: reduced() ? 'instant' : 'smooth' });
-    }
-    controls.hidden = false;
-    previous.addEventListener('click', () => moveGallery(-1));
-    next.addEventListener('click', () => moveGallery(1));
-    tradeWindow.addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(syncGallery); }, { passive: true });
-    tradeWindow.addEventListener('keydown', event => {
-      if (event.target !== tradeWindow || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
-      event.preventDefault();
-      moveGallery(event.key === 'ArrowRight' ? 1 : -1);
-    });
-    let galleryWidth = tradeWindow.clientWidth;
-    new ResizeObserver(() => {
-      if (tradeWindow.clientWidth === galleryWidth) return;
-      galleryWidth = tradeWindow.clientWidth;
-      tradeWindow.scrollTo({ left: offset(active), behavior: 'instant' });
-      syncGallery();
-    }).observe(tradeWindow);
-    syncGallery();
+  // Both galleries follow page scroll without intercepting wheel or touch input.
+  // The default CSS remains readable when motion is reduced or JS is absent.
+  function horizontalChapter(sectionSelector, prefix, cardSelector) {
+    const section = $(sectionSelector);
+    if (!section) return () => {};
+    const track = $('.' + prefix + '-track', section);
+    const viewport = $('.' + prefix + '-window', section);
+    const pin = $('.' + prefix + '-pin', section);
+    const progress = $('.' + prefix + '-progress>span', section);
+    const position = $('.' + prefix + '-position', section);
+    const cards = $$(cardSelector, track);
+    let distance = 0;
+    let active = true;
+    section.classList.add('is-horizontal');
+    viewport.scrollLeft = 0;
+    const cardOffset = card => card.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft);
+    const update = () => {
+      const offset = Math.max(0, Math.min(distance, -section.getBoundingClientRect().top));
+      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+      if (progress) progress.style.transform = `scaleX(${.1 + (distance ? offset / distance : 0) * .9})`;
+      if (position) {
+        const index = cards.reduce((nearest, card, current) => Math.abs(cardOffset(card) - offset) < Math.abs(cardOffset(cards[nearest]) - offset) ? current : nearest, 0);
+        const label = `${index + 1} / ${cards.length}`;
+        if (position.textContent !== label) position.textContent = label;
+      }
+    };
+    const layout = () => {
+      if (!active) return;
+      distance = Math.max(0, track.scrollWidth - viewport.clientWidth);
+      section.style.height = `${pin.offsetHeight + distance}px`;
+      update();
+    };
+    const focusCard = event => {
+      const card = event.target.closest(cardSelector);
+      if (!card) return;
+      // Focusing an offscreen link can scroll the browser's clipped viewport.
+      viewport.scrollLeft = 0;
+      const offset = Math.max(0, Math.min(distance, cardOffset(card)));
+      window.scrollTo({ top: scrollY + section.getBoundingClientRect().top + offset, behavior: 'instant' });
+      update();
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', layout);
+    document.addEventListener('visibilitychange', update);
+    track.addEventListener('focusin', focusCard);
+    layout();
+    document.fonts.ready.then(layout);
+    return () => {
+      active = false;
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', layout);
+      document.removeEventListener('visibilitychange', update);
+      track.removeEventListener('focusin', focusCard);
+      section.classList.remove('is-horizontal');
+      section.style.removeProperty('height');
+      track.style.removeProperty('transform');
+      progress?.style.removeProperty('transform');
+      viewport.scrollLeft = 0;
+    };
   }
 
   function buildMotion(entrance = false) {
     motionContext?.revert();
-    horizontal = null;
     const isReduced = reduced();
     document.documentElement.classList.toggle('motion-reduced', isReduced);
     $$('.motion-toggle').forEach(button => {
@@ -114,58 +131,12 @@
       if ($('.portrait-wrap')) gsap.fromTo('.portrait-wrap>img', { y: 14 }, { y: -14, ease: 'none', scrollTrigger: { trigger: '.portrait-wrap', start: 'top bottom', end: 'bottom top', scrub: 1 } });
     });
     motionContext.add('(min-width: 900px) and (min-height: 560px)', () => {
-      const track = $('.work-track');
-      const viewport = $('.work-window');
-      const pin = $('.work-pin');
-      const section = $('.work-section');
-      if (!track || !viewport || !pin || !section) return;
-      let distance = 0;
-      let active = true;
-      section.classList.add('is-horizontal');
-      viewport.scrollLeft = 0;
-      const update = () => {
-        const offset = Math.max(0, Math.min(distance, -section.getBoundingClientRect().top));
-        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
-        $('.work-progress>span').style.transform = `scaleX(${.1 + (distance ? offset / distance : 0) * .9})`;
-      };
-      const layout = () => {
-        if (!active) return;
-        distance = Math.max(0, track.scrollWidth - viewport.clientWidth);
-        section.style.height = `${pin.offsetHeight + distance}px`;
-        update();
-      };
-      horizontal = {
-        focusCard(card) {
-          const offset = Math.max(0, Math.min(distance, card.offsetLeft - parseFloat(getComputedStyle(track).paddingLeft)));
-          window.scrollTo({ top: scrollY + section.getBoundingClientRect().top + offset, behavior: 'instant' });
-          update();
-        }
-      };
-      window.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', layout);
-      document.addEventListener('visibilitychange', update);
-      layout();
-      document.fonts.ready.then(layout);
-      return () => {
-        active = false;
-        horizontal = null;
-        window.removeEventListener('scroll', update);
-        window.removeEventListener('resize', layout);
-        document.removeEventListener('visibilitychange', update);
-        section.classList.remove('is-horizontal');
-        section.style.removeProperty('height');
-        track.style.removeProperty('transform');
-        $('.work-progress>span').style.removeProperty('transform');
-      };
+      const clearWork = horizontalChapter('.work-section', 'work', '.project');
+      const clearTrades = horizontalChapter('.trade-scroll', 'trade', '.trade-project');
+      return () => { clearWork(); clearTrades(); };
     });
     document.fonts.ready.then(() => ScrollTrigger.refresh());
   }
-  $('.work-track')?.addEventListener('focusin', event => {
-    if (!horizontal) return;
-    const card = event.target.closest('.project');
-    if (!card) return;
-    horizontal.focusCard(card);
-  });
   $$('.motion-toggle').forEach(button => button.addEventListener('click', () => {
     userReduced = !userReduced;
     try { localStorage.setItem('lorn-reduced-motion', String(userReduced)); } catch { /* Keep the current preference for this page. */ }
