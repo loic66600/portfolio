@@ -124,7 +124,7 @@ Ce document décrit le code de la refonte, construit directement à la demande d
 **Key Characteristics:**
 
 - Grands aplats alternés et titres géométriques serrés.
-- Portrait réel dès l’accueil et aperçus de projets complets, sans recadrage.
+- Portrait d’accueil agrandi et fondu au bord droit ; aperçus de projets complets, sans recadrage.
 - Filets fins, très peu de surfaces encadrées, flèches comme repères d’action.
 - Interactions natives et préférence de mouvement réduit persistante.
 
@@ -162,30 +162,30 @@ Les rampes OKLCH du sidecar sont des échantillons synthétisés pour la prévis
 
 ### Hierarchy
 
-- **Display** : grand titre de l’accueil ; graisse forte, trois lignes explicites et dernier mot orange. La valeur de référence se trouve dans `typography.display`.
+- **Display** : grand titre de l’accueil ; graisse forte, deux lignes sur ordinateur et retour sur trois lignes sur petit mobile, avec le dernier mot orange. `typography.display` conserve l’échelle de base ; l’accueil panoramique applique une exception locale `clamp(68px, 7.3vw, 112px)`, interligne 1.02 et largeur maximale de 13ch. Les familles et graisses restent celles du système.
 - **Headline** : titres de section, à la graisse moyenne ; les variantes atelier, portrait, contact et pages secondaires adaptent cette échelle à leur composition.
 - **Title** : titres des projets. Les services emploient une variante fluide de 22 à 35px.
 - **Body** : base du document ; les textes courants des sections descendent à 12–14px selon leur contexte. Les paragraphes ont une largeur maximale par défaut de 68ch, souvent resserrée localement.
 - **Label** : métadonnées des projets et repères éditoriaux. Les libellés réels vont de 7 à 11px ; les plus petits sont des éléments d’accompagnement, pas l’échelle de lecture du corps.
 - **Button** : texte compact, gras et accompagné d’une flèche.
 
-À 800px et moins, le titre d’accueil passe à `clamp(50px, 7.2vw, 66px)`. À 560px et moins : `clamp(48px, 11.3vw, 64px)`, interligne 1.04 ; les titres de section usuels passent à 39px. Le formulaire utilise 16px sur petit écran.
+À 800px et moins, le titre panoramique passe à `clamp(50px, 9.5vw, 76px)`. À 560px et moins : `clamp(48px, 12.8vw, 68px)`. Sur ordinateur de 760px de haut ou moins, l’exception compacte utilise `clamp(62px, 6.7vw, 94px)` ; entre 801 et 1000px de large, le titre utilise 7.3vw. Les titres de section usuels passent à 39px sur petit écran. Le formulaire utilise 16px sur petit écran.
 
 **The Local Type Rule.** Réutiliser les deux familles hébergées dans `fonts/` et leurs graisses présentes ; conserver le resserrement des titres sans l’étendre aux paragraphes.
 
 ## Layout
 
-Les sections occupent la largeur disponible avec une gouttière fluide commune. Seul le conteneur d’accueil possède une largeur maximale de 1760px ; le site n’a pas de conteneur global de 1600px. L’espacement vertical courant suit les trois valeurs `spacing.section*`, avec des exceptions de composition pour la galerie, le bandeau de contact et les projets du studio.
+Les sections occupent la largeur disponible avec une gouttière fluide commune. L’accueil panoramique retire la limite de largeur de l’ancien conteneur : il s’étend jusqu’aux bords de l’écran et conserve la gouttière pour le texte et les commandes. L’espacement vertical courant suit les trois valeurs `spacing.section*`, avec des exceptions de composition pour l’accueil, la galerie, le bandeau de contact et les projets du studio.
 
-L’accueil utilise deux colonnes (1.1fr / 1fr), avec le titre et les actions à gauche, la photo d’origine de dos légendée à droite. Les applications mobiles occupent deux colonnes égales, séparées par un espace fluide de 28 à 80px ; le second article est décalé de 80px vers le bas. Les expertises sont des lignes ; l’atelier et la section à propos alternent texte et élément visuel. Les cinq sites métiers forment une liste verticale par défaut, enrichie d’un chapitre horizontal au scroll sur grand écran lorsque les animations sont actives. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
+L’accueil superpose une composition de texte à gauche et un portrait absolu contre le bord droit. Le grand titre s’étend vers le centre et le portrait se fond dans l’encre ; l’en-tête est posé par-dessus l’ensemble. Sur ordinateur, la zone principale mesure au moins `calc(100svh - 78px)`, complétée par le bandeau inférieur, avec un padding de 142px en haut et 74px en bas. Les applications mobiles occupent deux colonnes égales, séparées par un espace fluide de 28 à 80px ; le second article est décalé de 80px vers le bas. Les expertises sont des lignes ; l’atelier et la section à propos alternent texte et élément visuel. Les cinq sites métiers forment une liste verticale par défaut, enrichie d’un chapitre horizontal au scroll sur grand écran lorsque les animations sont actives. Le formulaire et le parcours sont des pages à deux colonnes, avec un en-tête et un pied de page communs.
 
 ### Responsive
 
-- **Au-dessus de 1600px** : accueil plus haut, en-tête de 110px.
+- **Au-dessus de 1600px** : en-tête de 110px ; l’accueil panoramique suit toujours la hauteur de l’écran.
 - **À 1100px et moins** : rythme vertical réduit, navigation et grilles plus compactes.
-- **À 800px et moins** : navigation repliée, applications et atelier sur une colonne, formulaire avant les coordonnées ; l’accueil conserve deux colonnes. Les articles d’applications perdent leur décalage et sont séparés de 52px ; leur appel au contact s’empile également.
-- **À 560px et moins** : accueil, galerie principale, section à propos, projets du studio, formulaire et parcours passent en pile verticale. Le portrait d’accueil précède visuellement le texte. Les cinq sites métiers restent en liste verticale, avec leurs légendes empilées et sans barre de progression.
-- **Écrans larges et peu hauts** : à partir de 900px de largeur et jusqu’à 800px de hauteur, l’accueil et la galerie se compactent selon la hauteur disponible.
+- **À 800px et moins** : navigation repliée, applications et atelier sur une colonne, formulaire avant les coordonnées. Dans l’accueil, le portrait reste absolu en haut à droite, sur 650px de haut ; le texte commence après 420px d’espace supérieur et la légende du portrait est masquée. Les articles d’applications perdent leur décalage et sont séparés de 52px ; leur appel au contact s’empile également.
+- **À 560px et moins** : le portrait d’accueil mesure 570px de haut et le texte commence à 370px. La galerie principale, la section à propos, les projets du studio, le formulaire et le parcours passent en pile verticale. Les cinq sites métiers restent en liste verticale, avec leurs légendes empilées et sans barre de progression.
+- **Écrans larges et peu hauts** : à partir de 801px de largeur et jusqu’à 760px de hauteur, l’accueil panoramique réduit son padding à 112px en haut et 46px en bas, avec une zone principale d’au moins `calc(100svh - 67px)`. La galerie principale garde sa variante compacte à partir de 900px de largeur et jusqu’à 800px de hauteur.
 
 ### Galerie principale au scroll
 
@@ -207,7 +207,7 @@ En dehors de ces conditions, notamment sur mobile, en mouvement réduit ou sans 
 
 ## Elevation & Depth
 
-Les composants n’utilisent pas d’ombres CSS. Les aplats, les filets et les changements de couleur produisent la séparation. Le portrait et les aperçus de projets restent plats. Les aperçus de la galerie principale gagnent seulement un léger agrandissement au survol ; ceux des sites métiers conservent leur cadrage complet.
+Les composants n’utilisent pas d’ombres CSS. Les aplats, les filets et les changements de couleur produisent la séparation. Le portrait panoramique s’intègre au fond par un masque de transparence à gauche et un fondu encre en bas ; le texte se superpose à cette transition. Les aperçus de la galerie principale gagnent seulement un léger agrandissement au survol ; ceux des sites métiers conservent leur cadrage complet.
 
 **The Flat Surface Rule.** Utiliser la couleur et les séparateurs existants pour structurer les surfaces ; les mouvements de survol ne créent pas de nouvelle ombre.
 
@@ -219,7 +219,7 @@ Les boutons et images sont presque rectangulaires, avec les très faibles rayons
 
 ### Buttons
 
-Compacts, explicites, accompagnés d’une flèche. Les trois variantes réelles sont papier sur encre, encre sur surface claire et orange pour l’envoi. Leur hauteur minimale courante est 52px. Le bouton d’accueil passe à 48px sur petit écran. Le survol déplace le bouton de 3px vers le haut ; la variante claire devient orange. Les boutons désactivés utilisent une opacité de 0.65 et le curseur d’attente.
+Compacts, explicites, accompagnés d’une flèche. Les trois variantes réelles sont papier sur encre, encre sur surface claire et orange pour l’envoi. Leur hauteur minimale courante est 52px ; le bouton de l’accueil panoramique conserve cette hauteur sur petit écran. Le survol déplace le bouton de 3px vers le haut ; la variante claire devient orange. Les boutons désactivés utilisent une opacité de 0.65 et le curseur d’attente.
 
 Les liens textuels ont une cible haute de 44px, un soulignement au survol et une flèche se déplaçant légèrement. Les liens circulaires interactifs mesurent au moins 44px ; la grande flèche du contact conserve sa propre échelle.
 
@@ -231,7 +231,9 @@ Les tags d’outils sont des éléments d’information, en capsules à contour 
 
 Les projets principaux sont des articles ouverts, sans cadre de carte : aperçu, catégorie et numéro, titre, description, puis disciplines. Les captures utilisent `object-fit: contain` sur un fond encre ; le rapport du cadre devient 2:1 sur petit écran. Le laboratoire constitue une véritable surface encadrée, sombre sur fond végétal, avec en-tête, scénarios, schéma et légende de démonstration.
 
-Le portrait d’accueil est une figure légendée utilisant `images/man4.jpg` (690 × 1391), la photo d’origine de Loïc de dos et vêtu de noir. L’image entière s’inscrit avec `object-fit: contain` dans le cadre CSS 4:5 existant, aux coins de 3px ; le rapport 4:5 décrit le cadre, pas le fichier source. Le nom et le rôle suivent l’image. La largeur de la figure est bornée par `min(100%, 400px, 49.6svh)` sur grand écran, passe à 90% à 800px ou moins, puis à `min(76vw, 280px)` à 560px ou moins. À cette dernière taille, la figure passe avant le texte et les actions. La photo est prioritaire au chargement. Le portrait de face `images/loic-rossignol.jpg` reste dans la section à propos. La source de la photo de dos a été inspectée ; son nouveau rendu dans l’accueil reste à vérifier.
+Le portrait panoramique utilise `images/man4.jpg` (690 × 1391), la photo d’origine de Loïc de dos et vêtu de noir. La figure est absolue, alignée contre le bord droit, haute comme l’accueil et large de `min(58vw, 780px)`. L’image emplit cette surface avec `object-fit: cover` et `object-position: right 8%`, sans rayon de coin : le recadrage agrandit la tête et les épaules. Un masque horizontal va du transparent à gauche à l’opacité complète à 32% de la largeur ; un dégradé encre au bas de la figure rejoint la transparence à 35% de sa hauteur. Le nom et le rôle sont placés en bas à droite sur ordinateur. La photo est prioritaire au chargement.
+
+À 800px et moins, la figure mesure `min(100%, 580px)` de large, son image est alignée en haut à droite et le fondu inférieur s’étend jusqu’à 55% de sa hauteur. La légende est masquée. Le portrait de face `images/loic-rossignol.jpg` reste dans la section à propos. Le recadrage et les fondus concernent uniquement la photo d’accueil ; les captures de projets et les visuels d’applications conservent leur présentation entière. Le rendu panoramique a été vérifié sur trois captures, aux formats 1440 × 900, 1280 × 720 et 390 × 844 ; le nouveau mouvement au scroll n’a pas été vérifié en interaction directe.
 
 Chaque site métier est un article ouvert sur papier : image complète cliquable, titre, catégorie et lien « Explorer le site ». Les titres utilisent une échelle de 24 à 38px, puis 26px sur petit écran. La progression et le compteur servent de repères visuels dans le chapitre horizontal ; ils ne sont ni des commandes ni une région de statut annoncée.
 
@@ -249,6 +251,8 @@ La validation s’appuie sur les attributs HTML. L’envoi affiche un libellé d
 
 En-tête horizontal, marque à gauche et liens courts à droite, séparé du contenu par un filet. Les liens soulignent leur libellé en orange au survol. À 800px et moins, un bouton ouvre un panneau plein écran sous l’en-tête. L’état est porté par `aria-expanded` ; Escape ferme le panneau et rend le focus au bouton. Le bouton et les liens participent au parcours Tab. La navigation mobile dépend du JavaScript.
 
+Sur l’accueil panoramique, l’en-tête est absolu en haut de la composition ; le panneau mobile ouvert conserve un en-tête fixe. Une seconde navigation sous les actions relie « Web créatif » à `#projets`, « Applications » à `#applications` et « Automatisation » à `#automatisations`. Les liens sont accompagnés de flèches et gardent une hauteur minimale de 44px. Un filet orange progresse au scroll au-dessus de cette navigation sur ordinateur ; les liens deviennent végétal au survol.
+
 Les liens, boutons et résumés exposent généralement un focus orange de 3px, décalé de 7px. Dans la galerie des sites métiers sur papier, les liens utilisent un contour encre pour conserver un contraste lisible ; le contour de l’image est décalé de 3px vers l’extérieur sur le papier, avec 8px de marge horizontale pour rester visible. La région n’ajoute pas d’arrêt de tabulation. Chaque page possède un lien d’évitement.
 
 ### Lignes d’expertises
@@ -257,7 +261,9 @@ Les liens, boutons et résumés exposent généralement un focus orange de 3px, 
 
 ### Mouvement
 
-L’entrée du titre dure 1.1s avec un décalage de 0.13s entre lignes ; le portrait d’accueil entre sur la même durée avec une translation verticale de 18px. Les deux utilisent `expo.out`. Le portrait de la section à propos conserve un léger déplacement au scroll. Les galeries des portfolios et des sites métiers partagent le même déplacement horizontal piloté par le scroll vertical, sans lecture automatique temporisée.
+L’entrée anime le titre entier sur 1.1s, depuis une translation verticale de 35px et une opacité de 0.65, sans décalage entre les lignes. La photo entre sur 1.4s par l’opacité seule, depuis 0.65. Les deux utilisent `expo.out`, puis nettoient leurs propriétés d’entrée. Ces animations sont présentes à toutes les largeurs lorsque le mouvement réduit est désactivé. Elles n’animent pas les mêmes transformations que la scène au scroll : le titre entier porte l’entrée, son dernier segment porte le scroll ; la photo utilise seulement l’opacité pour son entrée.
+
+Au-dessus de 800px, une timeline GSAP liée au scroll de l’accueil, de `top top` à `bottom top` avec `scrub: 1`, décale le dernier segment du titre de 5.5vw vers la droite et de 24px vers le haut, agrandit la photo à 1.07 et la déplace de 55px vers le bas, puis fait progresser le filet orange au-dessus des liens d’univers. Cette scène est absente à 800px et moins, ainsi qu’en mouvement réduit. Le code de cette nouvelle interaction a été examiné ; son déroulement n’a pas été vérifié en interaction directe. Le portrait de la section à propos conserve son léger déplacement au scroll. Les galeries des portfolios et des sites métiers partagent le même déplacement horizontal piloté par le scroll vertical, sans lecture automatique temporisée.
 
 Le bandeau typographique se répète sur 35s et les particules du schéma sur 2.8s. Le changement de scénario met à jour le texte immédiatement, avec une transition des nœuds de 0.5s lorsque les animations sont actives.
 

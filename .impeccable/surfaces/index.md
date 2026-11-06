@@ -12,13 +12,13 @@ Le visiteur évalue le regard créatif et les compétences web, mobile, e-commer
 
 Contrat descriptif consolidé depuis la refonte implémentée et la direction provisoire. Il ne prétend pas remplacer une approbation de maquette.
 
-**THESIS:** Une affiche de studio numérique incarnée : présenter Loïc et son travail dès l’accueil, puis laisser explorer les réalisations avec leurs aperçus complets.
+**THESIS:** Une affiche de studio numérique incarnée et panoramique : donner une présence forte à Loïc par son portrait agrandi contre le bord droit, prolonger le titre vers le centre, puis laisser explorer les réalisations avec leurs aperçus complets.
 
 **OWN-WORLD:** Encre végétale, papier ivoire, orange et vert atelier ; grands titres géométriques, textes compacts, filets et flèches. Les composants restent plats.
 
 **STORY:** Portrait, identité et intention ; trois portfolios à explorer ; TirTrack et God of Sparta dans une section applications mobiles ; expertises ; démonstration d’automatisation ; cinq sites métiers à faire défiler ; parcours et studio en création ; contact.
 
-**FIRST VIEWPORT:** Marque et navigation au-dessus d’un grand titre à gauche, « Des idées qui prennent vie. », accompagné d’une introduction et des accès projets/contact. À droite, la photo d’origine `images/man4.jpg`, Loïc de dos et vêtu de noir, montrée entière dans le cadre existant, avec son nom et son rôle. À 560px ou moins, le portrait précède visuellement le texte et les actions.
+**FIRST VIEWPORT:** En-tête superposé à une ouverture de la hauteur de l’écran. Le grand titre « Des idées qui prennent vie. » occupe deux lignes sur ordinateur et traverse le centre depuis la gauche. La photo d’origine `images/man4.jpg`, Loïc de dos et vêtu de noir, est agrandie et recadrée sur la tête et les épaules, contre le bord droit, avec un fondu à gauche et en bas. Introduction, accès projets/contact et liens « Web créatif », « Applications », « Automatisation » occupent la zone gauche. Sur mobile, le portrait remplit le haut, sa légende disparaît et le titre reprend trois lignes sous le visage, sur le fondu.
 
 **FORM:** Affiche de studio et galerie de projets. Chemin choisi : code-first. Seed key : indisponible ; le moteur Impeccable n’a pas pu s’initialiser après les tentatives effectuées. Aucun tirage ni classement de concepts n’est inventé.
 
@@ -26,7 +26,11 @@ Contrat descriptif consolidé depuis la refonte implémentée et la direction pr
 
 ## Signature interaction and responsive behavior
 
-Le portrait d’accueil utilise la photo de dos d’origine de 690 × 1391px, contenue sans recadrage dans un cadre CSS 4:5, avec une entrée verticale légère désactivée en mode réduit. Le portrait de face reste dans la section à propos. Sur écran d’au moins 900px de large et 560px de haut, avec les animations actives et leurs bibliothèques disponibles, les trois portfolios et les cinq sites métiers utilisent le même mécanisme `horizontalChapter` : panneau sticky natif, déplacement horizontal piloté par le scroll vertical et retour en arrière symétrique. Le focus sur le lien d’un projet amène celui-ci à l’écran.
+Le portrait panoramique utilise la photo de dos d’origine de 690 × 1391px, avec `object-fit: cover`, alignement `right 8%`, largeur `min(58vw, 780px)` et fondus CSS. À 800px et moins, il mesure jusqu’à 580px de large et 650px de haut, le texte commence à 420px ; à 560px et moins, la hauteur passe à 570px et le texte commence à 370px. Le portrait de face reste dans la section à propos. Les trois liens d’univers mènent aux ancres réelles `#projets`, `#applications` et `#automatisations`.
+
+L’entrée du titre entier utilise une translation verticale et de l’opacité pendant 1.1s ; l’entrée de la photo utilise seulement l’opacité pendant 1.4s. Elles fonctionnent aussi sur mobile hors mouvement réduit. Au-dessus de 800px, le scroll déplace le dernier segment du titre de 5.5vw et -24px, agrandit la photo à 1.07 en la déplaçant de 55px vers le bas et fait progresser le filet orange au-dessus des liens d’univers. La scène au scroll est désactivée sur mobile et en mouvement réduit. Les éléments d’entrée et de scroll ont été séparés pour éviter une concurrence sur leurs transformations.
+
+Sur écran d’au moins 900px de large et 560px de haut, avec les animations actives et leurs bibliothèques disponibles, les trois portfolios et les cinq sites métiers utilisent le même mécanisme `horizontalChapter` : panneau sticky natif, déplacement horizontal piloté par le scroll vertical et retour en arrière symétrique. Le focus sur le lien d’un projet amène celui-ci à l’écran.
 
 À 560px ou moins, les portfolios s’empilent ; au-dessus de cette largeur, ils conservent leur débordement horizontal natif lorsque l’animation n’est pas active. Les sites métiers restent une grille verticale de cinq articles hors du mode horizontal : sur mobile, en mode réduit, sans JavaScript ou lorsque les dimensions requises ne sont pas réunies. Les expertises utilisent des disclosures natifs et le laboratoire propose trois scénarios sans exécuter d’automatisation réelle.
 
@@ -38,7 +42,7 @@ Le lien de sortie de la galerie mène à `#applications`, avant les expertises. 
 
 Conserver les coordonnées, les liens utiles, le formulaire Web3Forms et les ancres historiques. Distinguer les concepts de réalisations clientes. Présenter LORN DIGITAL STUDIO comme une société en cours de création et ViteMonSite comme un aperçu avant lancement. L’interface est en français.
 
-Les applications mobiles reprennent les contenus et visuels du projet local LORN à la demande du propriétaire. Les visuels montrent les marques, pas des écrans des applications ; leur provenance figure dans `images/projects/sources.json` et `images/README.md`. Conserver les statuts privés ou en développement, sans lien vers les dépôts privés ni invitation à télécharger une application en boutique. Les retours approuvés sur le portrait et les sites métiers prolongent la direction existante, avec la même palette et les mêmes tokens.
+Les applications mobiles reprennent les contenus et visuels du projet local LORN à la demande du propriétaire. Les visuels montrent les marques, pas des écrans des applications ; leur provenance figure dans `images/projects/sources.json` et `images/README.md`. Conserver les statuts privés ou en développement, sans lien vers les dépôts privés ni invitation à télécharger une application en boutique. Les retours approuvés sur le portrait et les sites métiers prolongent la direction existante, avec la même palette et les mêmes fontes. Le recadrage panoramique concerne uniquement la photo d’accueil ; les images de projets restent entières. L’échelle du titre jusqu’à 112px est une exception locale documentée ; les tokens générés et le sidecar ne sont pas modifiés dans ce périmètre.
 
 ## Open decisions
 
@@ -48,4 +52,6 @@ Le public est une hypothèse de travail, conformément à PRODUCT.md. Le systèm
 
 La vérification native de la galerie des sites métiers a couvert l’aller et le retour au scroll, le dernier site (5 / 5), le troisième site entièrement visible au focus clavier, le format mobile 390px et le basculement du mouvement réduit, sans erreur signalée. Captures : `.impeccable/review/scroll-trades-desktop.jpg` et `.impeccable/review/scroll-trades-mobile.jpg`. La revue finale a demandé la correction de la documentation obsolète et n’a relevé aucun problème matériel de code dans ce périmètre.
 
-La source `images/man4.jpg` a été inspectée et correspond à la photo demandée. Le rendu de l’accueil après son remplacement n’a pas pu être vérifié : l’hôte du navigateur CUA était indisponible, puis l’accès à l’application native a expiré. Les captures de la galerie ne constituent pas une validation de ce nouveau rendu. `images/social-cover.jpg` reste la capture du 27 octobre 2026 avec le portrait de face ; elle n’a pas été actualisée pour cette correction.
+La source `images/man4.jpg` a été inspectée et correspond à la photo demandée. La réserve précédente sur l’absence de vérification visuelle de l’accueil est levée pour la composition panoramique : trois captures obtenues via l’API Firecrawl ont été vérifiées, `.impeccable/review/panorama-desktop.png` (1440 × 900), `panorama-compact.png` (1280 × 720) et `panorama-mobile.png` (390 × 844). La revue du panorama a rendu une disposition **ship** sur ce périmètre visuel.
+
+Le navigateur CUA restant indisponible, la nouvelle scène de scroll de l’accueil n’a pas été vérifiée en interaction directe. La correction qui sépare les transformations d’entrée et de scroll a été examinée dans le code ; les captures statiques ne valident pas ce comportement. Les tests antérieurs des galeries restent distincts de cette nouvelle animation. `images/social-cover.jpg` demeure la capture du 27 octobre 2026 avec le portrait de face et n’a pas été actualisée pour le panorama.

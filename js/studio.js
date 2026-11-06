@@ -125,10 +125,17 @@
     motionContext = gsap.matchMedia();
     motionContext.add('all', () => {
       if (entrance && $('.hero-copy')) {
-        gsap.from('.hero h1>span', { y: 35, opacity: .65, duration: 1.1, stagger: .13, ease: 'expo.out', clearProps: 'transform,opacity' });
-        gsap.from('.hero-portrait', { y: 18, duration: 1.1, ease: 'expo.out', clearProps: 'transform' });
+        gsap.from('.hero h1', { y: 35, opacity: .65, duration: 1.1, ease: 'expo.out', clearProps: 'transform,opacity' });
+        gsap.from('.hero-portrait img', { opacity: .65, duration: 1.4, ease: 'expo.out', clearProps: 'opacity' });
       }
       if ($('.portrait-wrap')) gsap.fromTo('.portrait-wrap>img', { y: 14 }, { y: -14, ease: 'none', scrollTrigger: { trigger: '.portrait-wrap', start: 'top bottom', end: 'bottom top', scrub: 1 } });
+    });
+    motionContext.add('(min-width: 801px)', () => {
+      if (!$('.hero--panorama')) return;
+      const scene = gsap.timeline({ scrollTrigger: { trigger: '.hero--panorama', start: 'top top', end: 'bottom top', scrub: 1 } });
+      scene.to('.hero--panorama h1>span:last-child', { x: () => innerWidth * .055, y: -24, ease: 'none' }, 0)
+        .to('.hero--panorama .hero-portrait img', { scale: 1.07, y: 55, transformOrigin: 'right center', ease: 'none' }, 0)
+        .to('.hero-disciplines', { '--hero-progress': 1, ease: 'none' }, 0);
     });
     motionContext.add('(min-width: 900px) and (min-height: 560px)', () => {
       const clearWork = horizontalChapter('.work-section', 'work', '.project');

@@ -23,7 +23,7 @@
 <script defer src="js/studio.js">
 </script>
 </head>
-<body>
+<body class="portfolio-home">
 <a class="skip-link" href="#main">Aller au contenu</a>
 <header class="site-header">
 <a class="brand" href="#accueil" aria-label="Loïc Rossignol — accueil">
@@ -51,15 +51,13 @@
 </button>
 </header>
 <main id="main">
-<section class="hero" id="accueil" aria-labelledby="hero-title">
+<section class="hero hero--panorama" id="accueil" aria-labelledby="hero-title">
 
 <div class="hero-main">
 <div class="hero-copy">
 <h1 id="hero-title">
 <span>Des idées</span>
-<span>qui prennent</span>
-<span class="accent">vie<span class="hero-dot">.</span>
-</span>
+<span>qui prennent <span class="accent">vie<span class="hero-dot">.</span></span></span>
 </h1>
 <p>Je suis Loïc. Je conçois des sites qui marquent,<br class="desktop-break"> des applications utiles et des automatisations<br class="desktop-break"> qui vous libèrent du temps.</p>
 <div class="hero-actions">
@@ -72,6 +70,11 @@
 </svg>
 </a>
 </div>
+<nav class="hero-disciplines" aria-label="Explorer mes univers">
+<a href="#projets"><span>Web créatif</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+<a href="#applications"><span>Applications</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+<a href="#automatisations"><span>Automatisation</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+</nav>
 </div>
 <figure class="hero-portrait">
 <img src="images/man4.jpg" alt="Loïc Rossignol de dos, vêtu de noir, le visage tourné de profil" width="690" height="1391" fetchpriority="high">
