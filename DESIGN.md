@@ -213,7 +213,7 @@ Les composants n’utilisent pas d’ombres CSS. Les aplats, les filets et les c
 
 ## Shapes
 
-Les boutons et images sont presque rectangulaires, avec les très faibles rayons définis dans le frontmatter. Les tags sont des capsules à contour fin. Le laboratoire et son moteur sont les surfaces les plus arrondies ; les sorties du schéma ont un rayon intermédiaire de 6px. Des flèches diagonales ou verticales en SVG accompagnent les liens. Les liens circulaires prolongent cette géométrie simple.
+Les boutons et images sont presque rectangulaires, avec les très faibles rayons définis dans le frontmatter. Les tags sont des capsules à contour fin. Le laboratoire utilise un rayon de 12px ; les nœuds de son diagramme ont un rayon de 16px et son moteur est circulaire. Des flèches diagonales ou verticales en SVG accompagnent les liens. Les liens circulaires prolongent cette géométrie simple.
 
 ## Components
 
@@ -265,7 +265,11 @@ L’entrée anime le titre entier sur 1.1s, depuis une translation verticale de 
 
 Au-dessus de 800px, une timeline GSAP liée au scroll de l’accueil, de `top top` à `bottom top` avec `scrub: 1`, décale le dernier segment du titre de 5.5vw vers la droite et de 24px vers le haut, déplace la photo de 55px vers le bas sans modifier son échelle, puis fait progresser le filet orange au-dessus des liens d’univers. Cette scène est absente à 800px et moins, ainsi qu’en mouvement réduit. Le code de cette interaction a été examiné ; son déroulement n’a pas été vérifié en interaction directe. Le portrait de la section à propos conserve son léger déplacement au scroll. Les galeries des portfolios et des sites métiers partagent le même déplacement horizontal piloté par le scroll vertical, sans lecture automatique temporisée.
 
-Le bandeau typographique se répète sur 35s et les particules du schéma sur 2.8s. Le changement de scénario met à jour le texte immédiatement, avec une transition des nœuds de 0.5s lorsque les animations sont actives.
+Le bandeau typographique se répète sur 35s. Le laboratoire d’automatisation occupe désormais la pleine largeur sous son introduction. Trois topologies distinctes sont rendues dans `js/automation.js` : qualification puis double sortie CRM/notification ; déclinaison puis validation humaine avant trois canaux ; inscription puis accueil et synchronisation convergeant vers un espace utilisateur. Ces parcours restent explicitement des démonstrations.
+
+Les connexions SVG se tracent sur 1.1s et portent un point mobile ; chaque arrivée active le nœud suivant. Le moteur n8n / Make utilise un disque orange et deux arcs de circuit en rotation. Un cycle dure environ 8 à 9s, pause comprise. La sélection détruit la timeline précédente avant de reconstruire le parcours ; une pause volontaire est conservée. Une commande locale permet de mettre l’animation en pause ou de la reprendre. Le mouvement s’arrête hors écran et dans un onglet masqué. Le mouvement réduit affiche les connexions et les nœuds complets sans animation. Sans GSAP, les scénarios restent sélectionnables et statiques ; sans JavaScript, le schéma HTML initial reste lisible.
+
+À 650px et moins, le diagramme passe d’un parcours horizontal à une composition verticale à embranchements. Les libellés restent du texte HTML, les connexions sont décoratives pour les lecteurs d’écran. La sélection s’exprime par `aria-pressed` et la description par une région polie. Le paramètre `scenario=leads|content|product` permet de partager un scénario. Les couleurs du signal sont végétal, orange clair et ivoire selon le scénario ; les boutons gardent l’état actif végétal.
 
 La préférence système `prefers-reduced-motion` et le bouton de pied de page désactivent les animations et les effets GSAP, réduisent les transitions et désactivent le scroll fluide. Le choix manuel est conservé dans `localStorage`. Une préférence système active ne peut pas être annulée par le bouton. Les portraits restent visibles, les scénarios restent utilisables et les sites métiers reviennent à leur liste verticale sans hauteur ni translation résiduelle du chapitre horizontal.
 

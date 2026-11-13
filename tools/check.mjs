@@ -38,6 +38,8 @@ const css = await readFile(path.join(root, 'css/studio.css'), 'utf8');
 for (const match of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g)) {
   try { await access(path.resolve(root, 'css', match[1])); } catch { errors.push(`CSS: fichier absent ${match[1]}`); }
 }
-try { new vm.Script(await readFile(path.join(root, 'js/studio.js'), 'utf8')); } catch (error) { errors.push(error.message); }
+for (const script of ['js/studio.js', 'js/automation.js']) {
+  try { new vm.Script(await readFile(path.join(root, script), 'utf8')); } catch (error) { errors.push(`${script}: ${error.message}`); }
+}
 if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
 else console.log('OK — 3 pages, ancres, fichiers, images, liens externes, JSON-LD, polices et syntaxe JavaScript.');

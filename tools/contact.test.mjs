@@ -20,12 +20,12 @@ function setup(fetchImplementation, valid = true) {
     querySelector: () => null,
     querySelectorAll: selector => selector === '.js-contact-form' ? [form] : [],
     documentElement: { classList: { toggle() {} } },
-    addEventListener() {}
+    addEventListener() {}, dispatchEvent() {}
   };
   vm.runInNewContext(source, {
     document, window: {}, matchMedia: () => ({ matches: false, addEventListener() {} }),
     localStorage: { getItem: () => null }, location: { search: '?projet=automatisation' },
-    URLSearchParams, AbortController, setTimeout, clearTimeout,
+    URLSearchParams, AbortController, setTimeout, clearTimeout, CustomEvent: class { constructor(type, options) { this.type=type; this.detail=options.detail; } },
     FormData: class {}, fetch: fetchImplementation
   });
   return { run: () => submit({ preventDefault() {} }), button, label, loading, status, subject, resets: () => resets };

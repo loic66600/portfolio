@@ -26,7 +26,8 @@ Contrôle les fichiers, ancres, identifiants, images, liens externes, JSON-LD et
 - contact.html : formulaire Web3Forms conservant la configuration existante.
 - ensavoirplus.html : parcours et compétences.
 - css/studio.css : nouvelle identité et responsive.
-- js/studio.js : navigation, sculpture Canvas, GSAP / ScrollTrigger, scénarios et formulaire.
+- js/studio.js : navigation, GSAP / ScrollTrigger, galeries au scroll et formulaire.
+- js/automation.js : trois diagrammes animés (demande client, contenu, produit), pause, mouvement réduit et adaptation verticale mobile.
 - js/vendor/ : GSAP 3.13 et ScrollTrigger, hébergés localement.
 - fonts/ : Space Grotesk et Manrope, avec leurs licences OFL.
 - images/projects/ : captures des réalisations et leur provenance.

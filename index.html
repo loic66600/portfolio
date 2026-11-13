@@ -22,6 +22,7 @@
 </script>
 <script defer src="js/studio.js">
 </script>
+<script defer src="js/automation.js"></script>
 </head>
 <body class="portfolio-home">
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -333,7 +334,7 @@
 </details>
 </div>
 </section>
-<section class="automation-section section-pad" id="automatisations" aria-labelledby="automation-title">
+<section class="automation-section automation-cinema section-pad" id="automatisations" aria-labelledby="automation-title">
 <div class="automation-copy">
 <h2 id="automation-title">Et si vos outils<br>travaillaient<br>
 <span>ensemble ?</span>
@@ -345,17 +346,17 @@
 </svg>
 </a>
 </div>
-<div class="automation-lab">
+<div class="automation-lab" data-automation-lab>
 <div class="lab-header">
 <span>LE LABO DES AUTOMATISATIONS</span>
 <span class="lab-status">
 <i>
-</i> EN MOUVEMENT</span>
+</i> DÉMONSTRATION</span>
 </div>
 <div class="scenario-controls" role="group" aria-label="Choisir un exemple d’automatisation">
-<button type="button" data-scenario="leads" aria-pressed="true">Demandes clients</button>
-<button type="button" data-scenario="content" aria-pressed="false">Contenus</button>
-<button type="button" data-scenario="product" aria-pressed="false">Produit</button>
+<button type="button" data-scenario="leads" aria-pressed="true" disabled>Demande client</button>
+<button type="button" data-scenario="content" aria-pressed="false" disabled>Contenu</button>
+<button type="button" data-scenario="product" aria-pressed="false" disabled>Produit</button>
 </div>
 <div class="workflow" aria-label="Exemple : formulaire, n8n ou Make, CRM et notification">
 <div class="flow-node node-source">

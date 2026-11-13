@@ -37,19 +37,6 @@
   });
   matchMedia('(min-width: 801px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
-  const scenarios = {
-    leads: ['Formulaire', 'Une nouvelle demande', 'CRM à jour', 'Le bon contact, au bon endroit', 'Notification', 'Votre équipe est informée', 'Une demande reçue sur votre site est enregistrée dans votre CRM, puis transmise à votre équipe.'],
-    content: ['Votre contenu', 'Une idée à partager', 'Formats adaptés', 'Chaque canal a son format', 'Publication', 'Après votre validation', 'Votre contenu est préparé pour vos différents canaux, puis planifié après votre validation.'],
-    product: ['Votre produit', 'Un nouvel utilisateur', 'Bienvenue', 'Un parcours personnalisé', 'Base à jour', 'Les outils sont synchronisés', 'Une inscription déclenche un parcours de bienvenue et synchronise les informations entre vos outils.']
-  };
-  const scenarioFields = ['flow-source', 'flow-source-sub', 'flow-output-one', 'flow-output-one-sub', 'flow-output-two', 'flow-output-two-sub', 'scenario-description'];
-  $$('[data-scenario]').forEach(button => button.addEventListener('click', () => {
-    $$('[data-scenario]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    scenarios[button.dataset.scenario].forEach((text, index) => { document.getElementById(scenarioFields[index]).textContent = text; });
-    $('.workflow').setAttribute('aria-label', `Exemple : ${scenarios[button.dataset.scenario][6]}`);
-    if (!reduced() && window.gsap) gsap.fromTo('.flow-node', { y: 7 }, { y: 0, duration: .5, stagger: .08, ease: 'power3.out', clearProps: 'transform' });
-  }));
-
   // Both galleries follow page scroll without intercepting wheel or touch input.
   // The default CSS remains readable when motion is reduced or JS is absent.
   function horizontalChapter(sectionSelector, prefix, cardSelector) {
@@ -115,6 +102,7 @@
     motionContext?.revert();
     const isReduced = reduced();
     document.documentElement.classList.toggle('motion-reduced', isReduced);
+    document.dispatchEvent(new CustomEvent('lorn:motionchange', { detail: { reduced: isReduced } }));
     $$('.motion-toggle').forEach(button => {
       button.setAttribute('aria-pressed', String(isReduced));
       button.textContent = media.matches ? 'Animations réduites (système)' : isReduced ? 'Activer les animations' : 'Réduire les animations';
