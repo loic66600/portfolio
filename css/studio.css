@@ -2396,7 +2396,7 @@ a.circle-link { min-width: 44px; min-height: 44px; }
   right:0;
   bottom:0;
   z-index:0;
-  width:min(58vw,780px);
+  width:min(43vw,600px,68svh);
   margin:0;
   pointer-events:none;
 }
@@ -2482,7 +2482,7 @@ a.circle-link { min-width: 44px; min-height: 44px; }
   .portfolio-home .site-header:has(.nav.is-open) { position:fixed; left:0; right:0; }
   .portfolio-home.menu-open main { padding-top:0; }
   .hero--panorama .hero-main { display:block; min-height:0; padding:420px var(--gutter) 42px; }
-  .hero--panorama .hero-portrait { width:min(100%,580px); height:650px; bottom:auto; }
+  .hero--panorama .hero-portrait { width:min(86%,480px); height:650px; bottom:auto; }
   .hero--panorama .hero-portrait img { object-position:right top; }
   .hero--panorama .hero-portrait::after { background:linear-gradient(0deg,var(--ink) 0%,transparent 55%); }
   .hero--panorama .hero-portrait figcaption { display:none; }

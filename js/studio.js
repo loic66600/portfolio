@@ -134,7 +134,7 @@
       if (!$('.hero--panorama')) return;
       const scene = gsap.timeline({ scrollTrigger: { trigger: '.hero--panorama', start: 'top top', end: 'bottom top', scrub: 1 } });
       scene.to('.hero--panorama h1>span:last-child', { x: () => innerWidth * .055, y: -24, ease: 'none' }, 0)
-        .to('.hero--panorama .hero-portrait img', { scale: 1.07, y: 55, transformOrigin: 'right center', ease: 'none' }, 0)
+        .to('.hero--panorama .hero-portrait img', { y: 55, ease: 'none' }, 0)
         .to('.hero-disciplines', { '--hero-progress': 1, ease: 'none' }, 0);
     });
     motionContext.add('(min-width: 900px) and (min-height: 560px)', () => {

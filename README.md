@@ -47,7 +47,7 @@ Le scroll horizontal épinglé est actif sur les écrans d’au moins 900 px de 
 
 ## Publication
 
-Branche de revue : feat/portfolio-lorn-redesign. La branche principale et la production ne sont pas modifiées.
+La refonte est publiée depuis la branche `main` sur [GitHub Pages](https://loic66600.github.io/portfolio/), avec l’accord du propriétaire. La branche `feat/portfolio-lorn-redesign` conserve l’historique du développement.
 
 Pour GitHub Pages, publier les fichiers statiques de la racine (le fichier .nojekyll est fourni). Conserver css/studio.css, js/studio.js, js/vendor, fonts et toutes les images référencées. Aucun build nécessaire. Si le domaine change, adapter les URL absolues des métadonnées sociales et du JSON-LD.
 
