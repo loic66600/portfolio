@@ -24,7 +24,7 @@ L’accueil conserve une composition spectaculaire : la photo d’origine de Lo�
 
 ## Evidence on Hand
 
-Portrait images/moi1.png. Réalisations Talyana Rossignol, VORTEX, Noah Laurent. Les README de VORTEX et Noah indiquent des démonstrations : ne pas reprendre leurs clients ou témoignages fictifs comme preuves commerciales. Expériences RedwoodPaddle et PWR-Foil documentées dans le site original. Site LORN : https://lorn-digital-studio.fr/.
+Portrait images/moi1.png. Réalisations Talyana Rossignol, VORTEX, Noah Laurent. Les README de VORTEX et Noah indiquent des démonstrations : ne pas reprendre leurs clients ou témoignages fictifs comme preuves commerciales. Expériences RedwoodPaddle et PWR-Foil documentées dans le site original. Aperçu LORN : https://preview.lorn-digital-studio.fr/ (lien utilisé sur le portfolio avant lancement).
 
 La photo d’accueil est `images/man4.jpg` (690 × 1391), image d’origine retrouvée dans `main:index.html` : Loïc de dos, vêtu de noir, le visage tourné de profil. Le fichier est conservé ; l’accueil panoramique applique son cadrage moins serré et son fondu en CSS. Le portrait de face `images/loic-rossignol.jpg` reste dans la section à propos. Les cinq sites métiers présentés sont des templates : Black & Gold (barbershop), Le Comptoir Catalan (restaurant), Éclair Elec 66 (électricien), Street Fusion (restauration rapide) et Dupont Peinture (peintre). Leurs aperçus proviennent de `images/templates/` et gardent leur cadrage complet.
 

@@ -41,7 +41,7 @@ Le scroll horizontal épinglé est actif sur les écrans d’au moins 900 px de 
 - [Talyana Rossignol](https://talyana-rossignol-portfolio.vercel.app/#accueil)
 - [VORTEX / Mavrik](https://loic66600.github.io/vortex-mavrik-portfolio/) — concept de démonstration.
 - [Noah Laurent](https://loic66600.github.io/portfolio-noah/) — concept de démonstration.
-- [LORN DIGITAL STUDIO](https://lorn-digital-studio.fr/) — site en préparation.
+- [LORN DIGITAL STUDIO — aperçu](https://preview.lorn-digital-studio.fr/) — aperçu avant lancement, lien utilisé sur le portfolio.
 - [ViteMonSite — aperçu](https://preview.vitemonsite-artisan.fr/) — aperçu avant lancement, lien utilisé sur le portfolio.
 - [ViteMonSite — site officiel](https://vitemonsite-artisan.fr/) — coming soon.
 
